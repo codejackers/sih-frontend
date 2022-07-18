@@ -4,13 +4,29 @@
   margin: auto;
   margin-top: 2em;
 }
-.input {
-  text-align: right;
-  background-color: #caf0f8;
-  border: 0;
-  border-radius: 10px;
-  align-self: right;
+.searchbar1 {
+  max-width: 700px;
+  padding: 0 1.5em;
+  margin: auto;
+  text-align: center;
 }
-.input::-ms-input-placeholder {
-  align-self: right;
+.HomePage {
+  height: 100vh;
+  width: 100vw;
+}
+.customSearch {
+  background-color: #0077b6;
+  width: 100vw;
+  height: calc(100vh - 100px);
+}
+.searchbar1 hr {
+  margin-top: 10px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 9px;
+}
+.searchbar1 h3 {
+  color: #ffffff;
+  font-weight: 200;
+  margin-top: 40px;
 }

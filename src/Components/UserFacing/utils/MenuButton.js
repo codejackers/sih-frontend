@@ -24,6 +24,7 @@ import {
 import { cloneElement, useState } from "react";
 
 import { lensTheme, useDesktop } from "./theme";
+import Navbar from "./Navbar";
 // import takeAssessment from "../../../assets/images/4325452 2.png";
 // import getReport from "../../../assets/images/530085 3.png";
 
@@ -97,7 +98,13 @@ export function MenuButton() {
         open={open}
         onClose={() => setOpen(false)}
       >
-        <Box display={"flex"} flexDirection="column" height={"87vh"}>
+        <Box
+          display={"flex"}
+          flexDirection="column"
+          height={"100vh"}
+          backgroundColor={"#CAF0F8"}
+        >
+          <Navbar color="#CAF0F8" hidden={true} />
           <Box>
             <List>
               {navLinks.map((link) => {
@@ -105,7 +112,7 @@ export function MenuButton() {
                   fontSize: "large",
                   sx: {
                     color: "#545454",
-                    fontSize: "46px",
+                    fontSize: "44px",
                     marginLeft: "7px",
                     mr: "10px",
                   },
