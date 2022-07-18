@@ -1,48 +1,81 @@
 import React from "react";
-import { MenuButton } from "./utils/MenuButton";
 import classes from "./Style/HomePage.module.css";
-import { Box } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import IconButton from "@mui/material/IconButton";
-import { Search } from "@mui/icons-material";
+import Navbar from "./utils/Navbar";
+import SearchBar from "./utils/SearchBar";
+import { useSelector, useDispatch } from "react-redux";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Close } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
+import { changeSearchBar } from "../../actions/auth";
+
 function HomePage() {
+  const changes = useSelector((state) => state.changes);
+  const [city, setCity] = React.useState("All");
+  const dispatch = useDispatch();
+  const handleChange = (e) => {
+    setCity(e.target.value);
+  };
   return (
     <div className={classes.HomePage}>
-      <Box
-        display={"flex"}
-        position={"sticky"}
-        top={0}
-        backgroundColor={"#0077B6"}
-        pl={3}
-        pr={3}
-        zIndex={2}
-        maxHeight={100}
-        height={100}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1597742800947-e17e915b8d83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80"
-          alt="logo"
-          height="60px"
-          style={{ margin: "auto", justifySelf: "center", marginLeft: 0 }}
-        />
-        <MenuButton />
-      </Box>
-      <div className={classes.searchbar}>
-        <TextField
-          fullWidth
-          id="standard-bare"
-          variant="outlined"
-          placeholder="Search Query"
-          InputProps={{
-            className: classes.input,
-            startAdornment: (
-              <IconButton sx={{ width: "60px", height: "32px" }}>
-                <Search sx={{ fontSize: "40px" }} />
-              </IconButton>
-            ),
-          }}
-        />
-      </div>
+      <Navbar color="#0077B6" />
+      {!changes.searchbar ? (
+        <div className={classes.searchbar}>
+          <SearchBar placeholder="Search Query" val={1} />
+        </div>
+      ) : (
+        <div className={classes.customSearch}>
+          <div className={classes.searchbar1}>
+            {" "}
+            <SearchBar placeholder="Enter Institute Name" val={2} />
+            <br />
+            <hr />
+            <h3>Select Your City</h3>
+            <Box sx={{ minWidth: "100px" }}>
+              <FormControl
+                sx={{
+                  width: "255px",
+                  mt: "2em",
+                  backgroundColor: "#ffffff",
+                  borderRadius: "10px",
+                }}
+              >
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={city}
+                  label="City"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={"All"}>All</MenuItem>
+                  <MenuItem value={"Raipur"}>Raipur</MenuItem>
+                  <MenuItem value={"Durg"}>Durg</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </div>{" "}
+          <Box
+            sx={{
+              position: "fixed",
+              bottom: "1em",
+              right: "2em",
+              p: 3,
+            }}
+          >
+            <IconButton
+              aria-label="close-drawer"
+              onClick={() => {
+                dispatch(changeSearchBar(false));
+              }}
+            >
+              <Close sx={{ fontSize: "46px" }} />
+            </IconButton>
+          </Box>
+        </div>
+      )}
     </div>
   );
 }
