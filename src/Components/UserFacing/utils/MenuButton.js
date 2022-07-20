@@ -27,6 +27,9 @@ import { lensTheme, useDesktop } from "./theme";
 import Navbar from "./Navbar";
 // import takeAssessment from "../../../assets/images/4325452 2.png";
 // import getReport from "../../../assets/images/530085 3.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSearchBar } from "../../../actions/auth";
 
 export function MenuButton() {
   const navLinks = [
@@ -38,12 +41,12 @@ export function MenuButton() {
     {
       name: "Search",
       icon: <Search />,
-      link: "/why-lens",
+      link: "/",
     },
     {
       name: "HEI login",
       icon: <School />,
-      link: "/how-it-works",
+      link: "/hei/login",
     },
     // {
     //   name: "Take Assessments",
@@ -58,17 +61,25 @@ export function MenuButton() {
     {
       name: "Contact Us",
       icon: <Phone />,
-      link: "/contact-us",
+      link: "/contact",
     },
     {
       name: "About Us",
       icon: <PriorityHigh />,
-      link: "/contact-us",
+      link: "/about",
     },
   ];
 
   const [open, setOpen] = useState(false);
   const sm = useDesktop();
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const changes = useSelector((state) => state.changes);
+  const handleClick = () => {
+    if (!changes.searchbar) {
+      dispatch(changeSearchBar(true));
+    }
+  };
 
   return (
     <>
@@ -127,7 +138,11 @@ export function MenuButton() {
                       onClick={() => {
                         if (link.link) {
                           //   history.push(link.link);
+                          navigate(link.link);
                           setOpen(false);
+                          if (link.name == "Search") {
+                            handleClick();
+                          }
                         }
                       }}
                     >
