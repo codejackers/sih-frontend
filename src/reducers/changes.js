@@ -1,7 +1,8 @@
-import { CHANGE_SEARCH_BAR } from "../actions/actionTypes";
+import { CHANGE_SEARCH_BAR, SAVE_COLLEGE_DATA } from "../actions/actionTypes";
 
 const initialChangeState = {
   searchbar: false,
+  colleges: [],
 };
 
 export default function changes(state = initialChangeState, action) {
@@ -10,6 +11,11 @@ export default function changes(state = initialChangeState, action) {
       return {
         ...state,
         searchbar: action.data,
+      };
+    case SAVE_COLLEGE_DATA:
+      return {
+        ...state,
+        colleges: action.data,
       };
     default:
       return state;

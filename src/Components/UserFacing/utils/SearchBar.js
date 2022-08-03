@@ -5,13 +5,15 @@ import { Search } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "../Style/SearchBar.module.css";
 import { changeSearchBar } from "../../../actions/auth";
+
 function SearchBar(props) {
   const changes = useSelector((state) => state.changes);
   const dispatch = useDispatch();
+
   const handleClick = () => {
-    if (!changes.searchbar) {
-      dispatch(changeSearchBar(true));
-    }
+    // if (!changes.searchbar) {
+    //   dispatch(changeSearchBar(true));
+    // }
   };
   return (
     <TextField
