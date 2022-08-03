@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Style/HomePage.module.css";
 import Navbar from "./utils/Navbar";
 import SearchBar from "./utils/SearchBar";
@@ -11,70 +11,41 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Close } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { changeSearchBar } from "../../actions/auth";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import ResultCard from "./utils/ResultCard";
+import { Player } from "@lottiefiles/react-lottie-player";
+import { getAllCollege } from "../../actions/college";
 
 function HomePage() {
   const changes = useSelector((state) => state.changes);
   const [city, setCity] = React.useState("All");
   const dispatch = useDispatch();
-  const handleChange = (e) => {
-    setCity(e.target.value);
-  };
+  // dispatch(getAllCollege());
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(getAllCollege());
+    }, 5000);
+  }, []);
+
   return (
     <div className={classes.HomePage}>
-      <Navbar color="#0077B6" />
-      {!changes.searchbar ? (
-        <div className={classes.searchbar}>
-          <SearchBar placeholder="Search Query" val={1} />
-        </div>
+      <Navbar color="#fff" />
+      <div className={classes.Filter}>
+        <h4>Filter Results </h4>
+        <FilterAltIcon sx={{ alignSelf: "center" }} />
+      </div>
+
+      {changes.colleges.length == 0 ? (
+        <Player
+          style={{ height: "400px" }}
+          src="https://assets9.lottiefiles.com/packages/lf20_i8mmfrht.json"
+          autoplay
+          loop
+        />
       ) : (
-        <div className={classes.customSearch}>
-          <div className={classes.searchbar1}>
-            {" "}
-            <SearchBar placeholder="Enter Institute Name" val={2} />
-            <br />
-            <hr />
-            <h3>Select Your City</h3>
-            <Box sx={{ minWidth: "100px" }}>
-              <FormControl
-                sx={{
-                  width: "255px",
-                  mt: "2em",
-                  backgroundColor: "#ffffff",
-                  borderRadius: "10px",
-                }}
-              >
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={city}
-                  label="City"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={"All"}>All</MenuItem>
-                  <MenuItem value={"Raipur"}>Raipur</MenuItem>
-                  <MenuItem value={"Durg"}>Durg</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          </div>{" "}
-          <Box
-            sx={{
-              position: "fixed",
-              bottom: "1em",
-              right: "2em",
-              p: 3,
-            }}
-          >
-            <IconButton
-              aria-label="close-drawer"
-              onClick={() => {
-                dispatch(changeSearchBar(false));
-              }}
-            >
-              <Close sx={{ fontSize: "46px" }} />
-            </IconButton>
-          </Box>
-        </div>
+        changes.colleges.map((data) => (
+          <ResultCard key={data._id} name={data.Uname} />
+        ))
       )}
     </div>
   );
