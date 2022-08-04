@@ -92,7 +92,7 @@ export function MenuButton() {
           setOpen(true);
         }}
       >
-        <Menu />
+        <Menu fontSize="large" />
       </IconButton>
       <Drawer
         anchor={sm ? "right" : "bottom"}
