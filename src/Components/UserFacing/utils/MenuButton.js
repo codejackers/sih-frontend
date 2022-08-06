@@ -181,6 +181,7 @@ export function MenuButton() {
     </>
   );
 }
+export default MenuButton;
 
 export function NavBar() {
   //   const history = useHistory();
