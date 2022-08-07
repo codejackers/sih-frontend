@@ -42,7 +42,14 @@
  justify-self: center;
  margin-left: 1.5rem;
  border-radius: 10px;
+ 
 }
 .Filter h4{
   align-self: center;
+  font-size: 14px;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+ 
 }
