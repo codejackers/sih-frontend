@@ -1,5 +1,6 @@
 import { APIUrls } from "../helpers/urls";
 import { SAVE_COLLEGE_DATA } from "./actionTypes";
+import { throttle } from "lodash";
 
 export function saveCollegeData(data) {
   return {
@@ -19,7 +20,6 @@ export function getAllCollege() {
       },
     })
       .then((response) => {
-        console.log(response.ok);
         if (response.ok) {
           return response.json();
         } else {
@@ -32,3 +32,27 @@ export function getAllCollege() {
       .catch((error) => console.log(error));
   };
 }
+
+export const getCollege = throttle((name) => {
+  return (dispatch) => {
+    const url = APIUrls.getCollege(name);
+
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        dispatch(saveCollegeData(data));
+      })
+      .catch((error) => console.log(error));
+  };
+}, 1000);
