@@ -3,7 +3,7 @@
 }
 .heading{
     padding: 0.5rem;
-    margin: 1rem 0rem 0rem 1rem;
+    margin-top: 1rem;
     font-size: 35px;
     filter: drop-shadow(12px 2px 10px rgba(0, 0, 0, 0.5));
 }
@@ -11,15 +11,22 @@
     display: flex;
     justify-content: space-between;
 }
+.title{
+
+text-align: left;
+}
 .formBody{
-    margin: 5rem 0rem 0rem 0rem;
+    margin: auto;
+    max-width: 400px;
 }
 .info{
     margin: 1rem 0rem 1rem 0rem;
     color: grey;
+    text-align: left;
 }
 .inpUnivName, .inpEmail, .btn{
-    margin: 1rem 0rem 0rem 0rem;
+    margin: auto;
+    margin-top: 1rem;
     padding: 1.5rem 0.5rem 1rem 0.5rem;
     border: 1px solid #DADADA;
     background: #F7F8F9;
@@ -50,12 +57,11 @@
 }
 
 @media (max-width: 650px){
-    .formBody{
-        margin: 5rem 0rem 0rem 1.5rem;
-    }
+  
     .inpUnivName, .inpEmail{
         padding: 1rem 1rem;
-        margin: 1rem 0rem 0rem 0rem;
+        margin: auto;
+        margin-top: 1rem;
         border-radius: 10px;
         font-size: 1.5rem;
         width: 300px;

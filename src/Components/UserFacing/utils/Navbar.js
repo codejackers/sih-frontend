@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 
 function Navbar(props) {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <Box
       display={"flex"}

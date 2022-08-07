@@ -109,13 +109,7 @@ export function MenuButton() {
         open={open}
         onClose={() => setOpen(false)}
       >
-        <Box
-          display={"flex"}
-          flexDirection="column"
-          height={"100vh"}
-          backgroundColor={"#CAF0F8"}
-        >
-          <Navbar color="#CAF0F8" hidden={true} />
+        <Box display={"flex"} flexDirection="column" height={"100vh"}>
           <Box>
             <List>
               {navLinks.map((link) => {
