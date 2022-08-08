@@ -55,4 +55,4 @@ export const getCollege = throttle((name) => {
       })
       .catch((error) => console.log(error));
   };
-}, 1000);
+}, 300);

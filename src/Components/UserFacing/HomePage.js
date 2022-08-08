@@ -25,14 +25,20 @@ function HomePage() {
     }
   };
   useEffect(() => {
-    if (changes.colleges.length == 0) {
-      setTimeout(() => {
-        dispatch(getAllCollege());
-      }, 5000);
-      setClg(changes.colleges);
-    } else {
-      setClg(changes.colleges);
-    }
+    setTimeout(() => {
+      dispatch(getAllCollege());
+    }, 5000);
+    setClg(changes.colleges);
+  }, []);
+
+  useEffect(() => {
+    // if (changes.colleges.length == 0) {
+    //   setTimeout(() => {
+    //     dispatch(getAllCollege());
+    //   }, 5000);
+    //   setClg(changes.colleges);
+    // } else {
+    setClg(changes.colleges);
   }, [changes.colleges]);
   return (
     <div className={classes.HomePage}>
