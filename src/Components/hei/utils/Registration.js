@@ -2,7 +2,7 @@ import React from "react";
 import MenuButton from "../../UserFacing/utils/MenuButton";
 import classes from "../Style/Registration.module.css";
 
-function Registration() {
+function Registration(props) {
   return (
     <div className={classes.mainDiv}>
       <div className={classes.titleMenu}>
@@ -24,12 +24,18 @@ function Registration() {
             <input
               className={classes.inpUnivName}
               placeholder="University Name"
-              type="email"
+              type="text"
             />{" "}
             <br />
             <input placeholder="Email" className={classes.inpEmail} />
             <br />
-            <button type="submit" className={classes.btn}>
+            <button
+              type="button"
+              className={classes.btn}
+              onClick={() => {
+                props.setSlot();
+              }}
+            >
               Proceed to next step
             </button>
           </form>
