@@ -1,0 +1,33 @@
+.Calender{
+    max-width: 350px;
+    margin: auto;
+    padding: 1rem;
+}
+.Title{
+    font-family: "urbanist";
+    margin-top: 4rem;
+    font-size: 25px;
+    margin-left: 1rem;
+}
+.subTitle{
+    margin-top: 0.7rem;
+    color: #A3A3A3;
+    margin-left: 1rem;
+}
+
+.btn button{
+    display: inline-block;
+    height: 56px;
+    width: 300px;
+    align-self: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    border: 0;
+   
+}
+.btn{
+    display: flex;
+justify-content: center;
+margin:2rem 0 ;
+}

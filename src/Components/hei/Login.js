@@ -4,21 +4,31 @@ import { useState } from "react";
 import classes from "./Style/login.module.css";
 import logo from "./Img/collegeImgSVG.svg";
 import Registration from "./utils/Registration";
+import TimeSlot from "./utils/TimeSlot";
 
 function Login() {
   const [pass, setPwd] = useState("");
   const [show_pass, setIsRevealPwd] = useState(false);
   const [register, setRegister] = useState(false);
+  const [timeSlot, setTimeSlot] = useState(false);
   const handleRegister = () => {
     if (!register) {
       setRegister(true);
     }
   };
-
+  const handleSlot = () => {
+    if (!timeSlot) {
+      setTimeSlot(true);
+    }
+  };
   return (
     <>
       {register ? (
-        <Registration />
+        timeSlot ? (
+          <TimeSlot />
+        ) : (
+          <Registration setSlot={handleSlot} />
+        )
       ) : (
         <div className={classes.mainDiv}>
           <div className={classes.titleMenu}>
