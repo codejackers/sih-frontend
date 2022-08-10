@@ -1,15 +1,15 @@
 import React from 'react';
-import sucessImg from "../Img/sucessVector.png";
-import classes from "../Style/Sucess.module.css";
+import successImg from "../Img/successVector.png";
+import classes from "../Style/Success.module.css";
 import NavBar from "../../UserFacing/utils/Navbar";
 
-function Sucess() {
+function Success() {
   return (
     <div className={classes.mainDiv}>
         <NavBar name="Reset Password" />
-        <din className={classes.sucessMessage}>
+        <din className={classes.successMessage}>
             <center>
-                <img className={classes.sucessImg} src={sucessImg}/>
+                <img className={classes.successImg} src={successImg}/>
                 <h2 className={classes.title}>Password Changed!</h2>
                 <p className={classes.info}>
                 Your password has been changed successfully.
@@ -26,4 +26,4 @@ function Sucess() {
   )
 }
 
-export default Sucess
+export default Success
