@@ -21,14 +21,17 @@ function Registration(props) {
               We'll get back to you via e-mail once we verify your registration
               Request.
             </p>
+            <input placeholder="Email" className={classes.inpEmail} />
             <input
               className={classes.inpUnivName}
               placeholder="University Name"
               type="text"
             />{" "}
             <br />
-            <input placeholder="Email" className={classes.inpEmail} />
             <br />
+            <h2 className={classes.title}>Create new password</h2>
+            <input placeholder="New Password" className={classes.inpNewpass} />
+            <input placeholder="Confirm Password" className={classes.inpNewpass} />
             <button
               type="button"
               className={classes.btn}
@@ -36,8 +39,9 @@ function Registration(props) {
                 props.setSlot();
               }}
             >
-              Proceed to next step
+               Next step
             </button>
+
           </form>
         </center>
       </div>
