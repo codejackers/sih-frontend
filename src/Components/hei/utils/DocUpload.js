@@ -1,18 +1,11 @@
 import React from 'react'
-import MenuButton from "../../UserFacing/utils/MenuButton";
+import NavBar from "../../UserFacing/utils/Navbar";
 import classes from "../Style/DocUpload.module.css";
 
 function DocUpload() {
   return (
     <div className={classes.mainDiv}>
-      <div className={classes.titleMenu}>
-          <div>
-              <h2 className={classes.heading}>Registration</h2>
-          </div>
-          <div className={classes.menuSize}>
-              <MenuButton/>
-          </div>  
-      </div>
+      <NavBar name="Registration" />
       <div className={classes.formBody}>
         <center>
           <form>
@@ -32,6 +25,11 @@ function DocUpload() {
               type="button"
               className={classes.btn}>
               Send Registration Request
+            </button>
+            <button
+              type="button"
+              className={classes.btn2nd}>
+              Back
             </button>
           </form>
         </center>
