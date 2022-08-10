@@ -1,15 +1,6 @@
 .mainDiv{
     font-family: Urbanist;
 }
-.heading{
-    padding: 0.5rem;
-    margin: 1rem 0 0 1rem;
-    font-size: 35px;
-}
-.titleMenu{
-    display: flex;
-    justify-content: space-between;
-}
 .title, .info{
     margin:  1rem 1rem 1rem 20px;
     text-align: left;
@@ -41,9 +32,6 @@
 }
 ::placeholder{
     color: #A3A3A3;
-}
-.menuSize{
-    margin: 1.3rem 1rem 2rem 1rem;
 }
 
 @media (max-width: 650px){

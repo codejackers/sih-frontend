@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MenuButton from "../UserFacing/utils/MenuButton";
+import NavBar from "../UserFacing/utils/Navbar";
 import { useState } from "react";
 import classes from "./Style/login.module.css";
 import logo from "./Img/collegeImgSVG.svg";
@@ -32,14 +32,7 @@ function Login() {
         )
       ) : (
         <div className={classes.mainDiv}>
-          <div className={classes.titleMenu}>
-            <div>
-              <h2 className={classes.heading}>University Login</h2>
-            </div>
-            <div className={classes.menuSize}>
-              <MenuButton />
-            </div>
-          </div>
+          <NavBar name="University Login" />
           <center>
             <img className={classes.loginImage} src={logo} />
             <form>
