@@ -6,7 +6,7 @@
     margin: 1rem 0 0 1rem;
     font-size: 35px;
 }
-.titleMenu{
+.titleMenu, .uploadDocFlex{
     display: flex;
     justify-content: space-between;
 }
@@ -17,11 +17,12 @@
 .formBody{
     margin: auto;
     max-width: 400px;
+    margin-top: 100px;
 }
-.info{
+.info, .infoDoc{
     color: #A3A3A3;
 }
-.inpUnivName, .inpEmail, .btn, .inpNewpass{
+.inpId, .btn{
     margin: auto;
     margin-top: 1rem;
     padding: 1rem 0.5rem 1rem 0.5rem;
@@ -30,6 +31,25 @@
     border-radius: 8px;
     width: 350px;
     font-size: 15px;
+}
+.fileUpload{
+    visibility: hidden;
+}
+.uploadDocFlex{
+    margin: 1.5rem 0rem 1rem 0;
+}
+.infoDoc{
+    width: 600px;
+    margin-left: 0.8rem;
+}
+.label{
+    width: 300px;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-right: -3.5rem;
+    color: white;
+    background: black;
+    border: none;
+    border-radius: 8px;
 }
 .btn{
     width: 368px;
@@ -47,17 +67,18 @@
 }
 
 @media (max-width: 650px){
-    .inpUnivName, .inpEmail, .inpNewpass{
+    .inpId{
         padding: 1rem 1rem;
         margin: auto;
         margin-top: 1rem;
-        border-radius: 10px;
         width: 300px;
-        text-align: left;
     }
     .btn{
         padding: 1.2rem 0.5rem 2.5rem 0.5rem;
         width: 335px;
         font-size: 15px;
+    }
+    .formBody{
+        margin-top: 50px;
     }
 }
