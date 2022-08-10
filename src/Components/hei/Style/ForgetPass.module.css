@@ -1,0 +1,57 @@
+.mainDiv{
+    font-family: Urbanist;
+}
+.title, .info{
+    margin:  1rem 1rem 1rem 20px;
+    text-align: left;
+}
+
+.formBody{
+    margin: auto;
+    max-width: 400px;
+    margin-top: 120px;
+}
+.info{
+    color: #A3A3A3;
+}
+.btn{
+    margin-top: 1rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    border: 1px solid #DADADA;
+    border-radius: 8px;
+    width: 375px;
+    height: 60px;    
+    text-align: center;
+    color: white;    
+    background-color: black;
+    font-size: 15px;
+}
+::placeholder{
+    color: #A3A3A3;
+}
+.inpEmail{
+    margin: 1rem 0rem 0rem 0rem;
+    padding: 1rem 0.8rem 1rem 0.8rem;
+    font-size: 15px;
+    width: 352px;
+    background: #F7F8F9;
+    border: 1px solid #DADADA;
+    border-radius: 8px;
+}
+
+@media (max-width: 650px){
+    .btn{
+        padding: 1.2rem 0.5rem 2.5rem 0.5rem;
+        width: 335px;
+        font-size: 15px;
+    }
+    .formBody{
+        margin: auto;
+        max-width: 400px;
+        margin-top: 80px;
+    }
+    .inpEmail{
+        padding: 1rem 1rem;
+        width: 300px;
+    }
+}
