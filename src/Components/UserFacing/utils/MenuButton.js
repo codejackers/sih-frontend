@@ -29,7 +29,6 @@ import Navbar from "./Navbar";
 // import getReport from "../../../assets/images/530085 3.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSearchBar } from "../../../actions/auth";
 
 export function MenuButton() {
   const navLinks = [
@@ -75,11 +74,6 @@ export function MenuButton() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const changes = useSelector((state) => state.changes);
-  const handleClick = () => {
-    if (!changes.searchbar) {
-      dispatch(changeSearchBar(true));
-    }
-  };
 
   return (
     <>
@@ -134,9 +128,6 @@ export function MenuButton() {
                           //   history.push(link.link);
                           navigate(link.link);
                           setOpen(false);
-                          if (link.name == "Search") {
-                            handleClick();
-                          }
                         }
                       }}
                     >

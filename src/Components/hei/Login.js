@@ -5,30 +5,49 @@ import classes from "./Style/login.module.css";
 import logo from "./Img/collegeImgSVG.svg";
 import Registration from "./utils/Registration";
 import TimeSlot from "./utils/TimeSlot";
-import eye from './Img/eyeVector.png';
+import eye from "./Img/eyeVector.png";
+import DocUpload from "./utils/DocUpload";
+import { set } from "lodash";
 
 function Login() {
   const [pass, setPwd] = useState("");
   const [show_pass, setIsRevealPwd] = useState(false);
   const [register, setRegister] = useState(false);
   const [timeSlot, setTimeSlot] = useState(false);
+  const [doc, setDoc] = useState(false);
   const handleRegister = () => {
     if (!register) {
       setRegister(true);
+    } else {
+      setRegister(false);
     }
+    console.log();
   };
   const handleSlot = () => {
     if (!timeSlot) {
       setTimeSlot(true);
+    } else {
+      setTimeSlot(false);
+    }
+  };
+  const handleDoc = () => {
+    if (!doc) {
+      setDoc(true);
+    } else {
+      setDoc(false);
     }
   };
   return (
     <>
       {register ? (
         timeSlot ? (
-          <TimeSlot />
+          doc ? (
+            <DocUpload back={handleDoc} />
+          ) : (
+            <TimeSlot setDoc={handleDoc} back={handleSlot} />
+          )
         ) : (
-          <Registration setSlot={handleSlot} />
+          <Registration setSlot={handleSlot} back={handleRegister} />
         )
       ) : (
         <div className={classes.mainDiv}>
