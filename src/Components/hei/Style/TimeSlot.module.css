@@ -15,10 +15,10 @@
     margin-left: 1rem;
 }
 
-.btn button{
+.btn2{
     display: inline-block;
     height: 56px;
-    width: 300px;
+    width: 150px;
     align-self: center;
     background-color: #000;
     color: #fff;
@@ -26,8 +26,19 @@
     border: 0;
    
 }
+.btn1{
+    display: inline-block;
+    height: 56px;
+    width: 150px;
+    align-self: center;
+    background-color:#fff;
+   
+    border-radius: 8px;
+    border: solid 1px black;
+   
+}
 .btn{
     display: flex;
-justify-content: center;
+justify-content: space-between;
 margin:2rem 0 ;
 }
