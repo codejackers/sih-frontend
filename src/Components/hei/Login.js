@@ -5,6 +5,7 @@ import classes from "./Style/login.module.css";
 import logo from "./Img/collegeImgSVG.svg";
 import Registration from "./utils/Registration";
 import TimeSlot from "./utils/TimeSlot";
+import eye from './Img/eyeVector.png';
 
 function Login() {
   const [pass, setPwd] = useState("");
@@ -59,7 +60,7 @@ function Login() {
                 className={classes.viewPass}
                 title={show_pass ? "Hide password" : "Show password"}
                 onClick={() => setIsRevealPwd((prevState) => !prevState)}
-                src="https://icons.veryicon.com/png/o/application/cloud-supervision-platform-vr10/show-password.png"
+                src={eye}
               />
               <br />
               <a className={classes.frgtPass} href="#">
