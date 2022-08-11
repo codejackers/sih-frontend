@@ -12,7 +12,7 @@
 .info{
     color: #A3A3A3;
 }
-.inpUnivName, .inpEmail, .btn, .inpNewpass{
+.inpUnivName, .inpEmail, .btn,.btn1, .inpNewpass{
     margin: auto;
     margin-top: 1rem;
     padding: 1rem 0.5rem 1rem 0.5rem;
@@ -22,9 +22,22 @@
     width: 350px;
     font-size: 15px;
 }
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+.btn1{
+    width: 150px;
+    height: 56px;    
+    text-align: center;
+    color: black;    
+    background-color: white;
+    font-size: 15px;
+    border: solid 1px black;
+}
 .btn{
-    width: 368px;
-    height: 60px;    
+    width: 150px;
+    height: 56px;    
     text-align: center;
     color: white;    
     background-color: black;
@@ -45,7 +58,7 @@
     }
     .btn{
         padding: 1.2rem 0.5rem 2.5rem 0.5rem;
-        width: 335px;
+        width: 150px;
         font-size: 15px;
     }
 }
