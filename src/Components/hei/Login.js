@@ -7,14 +7,17 @@ import Registration from "./utils/Registration";
 import TimeSlot from "./utils/TimeSlot";
 import eye from "./Img/eyeVector.png";
 import DocUpload from "./utils/DocUpload";
-import { set } from "lodash";
+import { useDispatch } from "react-redux";
+import { loginCollege } from "../../actions/auth";
 
 function Login() {
   const [pass, setPwd] = useState("");
+  const [email, setEmail] = useState("");
   const [show_pass, setIsRevealPwd] = useState(false);
   const [register, setRegister] = useState(false);
   const [timeSlot, setTimeSlot] = useState(false);
   const [doc, setDoc] = useState(false);
+  const dispatch = useDispatch();
   const handleRegister = () => {
     if (!register) {
       setRegister(true);
@@ -36,6 +39,9 @@ function Login() {
     } else {
       setDoc(false);
     }
+  };
+  const handleLogin = () => {
+    if (email != "" && pass != "") dispatch(loginCollege(email, pass));
   };
   return (
     <>
@@ -59,6 +65,9 @@ function Login() {
                 className={classes.inpEmail}
                 placeholder="Enter your email"
                 type="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />{" "}
               <br />
               <input
@@ -79,12 +88,16 @@ function Login() {
                 Forgot Password?
               </a>
               <br />
-              <button type="submit" className={classes.btn}>
+              <button
+                type="button"
+                className={classes.btn}
+                onClick={handleLogin}
+              >
                 Login
               </button>
               <br />
               <button
-                type="submit"
+                type="button"
                 onClick={handleRegister}
                 className={classes.newBtn}
               >
