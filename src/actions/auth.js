@@ -1,5 +1,7 @@
 import {
+  AUTHENTICATION,
   CHANGE_SEARCH_BAR,
+  REGISTER_COMPLETE,
   REGISTER_DOC_UID,
   REGISTER_EMAIL_NAME_PASS,
   REGISTER_TIME_SLOT,
@@ -7,6 +9,17 @@ import {
 import { throttle } from "lodash";
 import { APIUrls } from "../helpers/urls";
 
+export function verification(data) {
+  return {
+    type: AUTHENTICATION,
+    data,
+  };
+}
+export function registerComplete() {
+  return {
+    type: REGISTER_COMPLETE,
+  };
+}
 export function registerEmailNamePass(data) {
   return {
     type: REGISTER_EMAIL_NAME_PASS,
@@ -46,7 +59,38 @@ export const registerCollege = throttle(() => {
         }
       })
       .then((data) => {
-        console.log(data);
+        dispatch(registerComplete());
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
+
+export const loginCollege = throttle((Uemail, Pass) => {
+  return (dispatch) => {
+    const url = APIUrls.loginCollege();
+    let body = JSON.stringify({ Uemail: Uemail, Pass: Pass });
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        dispatch(
+          verification({
+            Uemail: data.Uemail,
+            UID: data.UID,
+            verified: data.verified,
+          })
+        );
       })
       .catch((error) => console.log(error));
   };
