@@ -1,4 +1,6 @@
 import {
+  AUTHENTICATION,
+  REGISTER_COMPLETE,
   REGISTER_DOC_UID,
   REGISTER_EMAIL_NAME_PASS,
   REGISTER_TIME_SLOT,
@@ -12,6 +14,11 @@ const initialAuthState = {
     DOC: "",
     Pass: "",
     Slot: "",
+  },
+  Login: {
+    Uemail: "",
+    UID: "",
+    Verified: false,
   },
 };
 
@@ -42,6 +49,23 @@ export default function auth(state = initialAuthState, action) {
           ...state.Registration,
           UID: action.data.uid,
           DOC: action.data.doc,
+        },
+      };
+    case AUTHENTICATION:
+      return {
+        ...state,
+        Login: {
+          ...state.Login,
+          Uemail: action.data.Uemail,
+          UID: action.data.UID,
+          Verified: action.data.Verified,
+        },
+      };
+    case REGISTER_COMPLETE:
+      return {
+        ...state,
+        Registration: {
+          ...initialAuthState.Registration,
         },
       };
 
