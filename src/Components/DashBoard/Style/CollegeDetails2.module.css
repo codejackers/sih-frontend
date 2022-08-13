@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+.CollegeDetails{
+    max-width: 700px;
+    margin: auto;
+    background-color: #E9E9E9;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+}
+.desc{
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    margin-bottom: 2rem;
+}
+.desc img{
+    aspect-ratio: 1;
+    height: 5rem;
+    border-radius: 8px;
+}
+.desc{
+    font-size: 24px;
+    font-family: Urbanist;
+    margin-bottom: 0.5rem;
+}
+.desc p{
+text-align: justify;
+}
+.desc{
+    margin-left: 0.2rem;
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+.btns button{
+    display: flex;
+    padding: 7px;
+    border: 0;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Urbanist;
+}
+.btns button{
+    padding-left: 5px;
+}
