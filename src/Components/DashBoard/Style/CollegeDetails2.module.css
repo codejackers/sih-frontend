@@ -19,7 +19,7 @@
     height: 5rem;
     border-radius: 8px;
 }
-.desc h5{
+.desc{
     font-size: 24px;
     font-family: Urbanist;
     margin-bottom: 0.5rem;
@@ -43,10 +43,6 @@ text-align: justify;
     font-size: 18px;
     font-family: Urbanist;
 }
-.btns button span{
+.btns button{
     padding-left: 5px;
-}
-.clgAddr{
-    max-width:250px;
-    word-wrap:break-word;
 }
