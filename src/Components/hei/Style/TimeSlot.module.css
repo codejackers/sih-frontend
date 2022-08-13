@@ -1,0 +1,44 @@
+.Calender{
+    max-width: 350px;
+    margin: auto;
+    padding: 1rem;
+}
+.Title{
+    font-family: "urbanist";
+    margin-top: 4rem;
+    font-size: 25px;
+    margin-left: 1rem;
+}
+.subTitle{
+    margin-top: 0.7rem;
+    color: #A3A3A3;
+    margin-left: 1rem;
+}
+
+.btn2{
+    display: inline-block;
+    height: 56px;
+    width: 150px;
+    align-self: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    border: 0;
+   
+}
+.btn1{
+    display: inline-block;
+    height: 56px;
+    width: 150px;
+    align-self: center;
+    background-color:#fff;
+   
+    border-radius: 8px;
+    border: solid 1px black;
+   
+}
+.btn{
+    display: flex;
+justify-content: space-between;
+margin:2rem 0 ;
+}
