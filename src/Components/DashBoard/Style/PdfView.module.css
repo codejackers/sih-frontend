@@ -1,0 +1,21 @@
+.mainDiv{
+    margin: auto;
+    max-width: 800px;
+}
+.view{
+    margin: 1rem;
+    margin: auto;
+}
+.controller{
+    display: flex;
+    justify-content: center;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 3;
+    
+}
+.controller button{
+    margin: 0;
+    background-color: transparent;
+    border: none;
+}
