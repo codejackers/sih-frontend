@@ -1,6 +1,9 @@
 .mainDiv{
     margin: auto;
     max-width: 800px;
+    /* position: absolute;
+    z-index: 7; */
+
 }
 .view{
     margin: 1rem;
