@@ -1,0 +1,44 @@
+.HorizontalScroller{
+    max-width: 730px;
+    background-color: #E9E9E9;
+    border-radius: 10px;
+    margin: auto;
+   
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+        /* white-space: nowrap; */
+        
+}
+.HorizontalScroller::-webkit-scrollbar{
+    display: none;
+}
+.Card{
+    border-radius: 10px;
+    padding:1rem;
+    background-color: white;
+   height:550px;
+ max-width: 400px;
+   margin:1rem;
+   /* display: flex;
+   flex-direction:column ; */
+   flex-basis: 250px;
+	flex-grow: 0;
+	flex-shrink: 0;
+
+}
+.Card p{
+    word-break: break-all;
+    white-space: normal;
+    font-size: 14px;
+    user-select: none;
+    margin-top: 1rem;
+}
+.Card h1{
+    font-size: 18px;
+    /* margin-right: 140px; */
+   
+}
+.Card .heading{
+    min-height: 40px;
+}

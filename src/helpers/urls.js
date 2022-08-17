@@ -5,4 +5,5 @@ export const APIUrls = {
   getCollege: (name) => `${API_ROOT}/college/list?collegename=${name}`,
   registerCollege: () => `${API_ROOT}/college/register`,
   loginCollege: () => `${API_ROOT}/college/login`,
+  CollegeDetails: () => `${API_ROOT}/college`,
 };
