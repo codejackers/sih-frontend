@@ -14,7 +14,11 @@ function CollegeDetails(props) {
         </div>
       </div>
       <div className={classes.btns}>
-        <button>
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(props.share);
+          }}
+        >
           <ShareIcon />
           <span>Share</span>
         </button>
