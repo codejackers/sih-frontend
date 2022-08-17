@@ -61,7 +61,9 @@ function HomePage() {
             loop
           />
         ) : (
-          clg.map((data) => <ResultCard key={data._id} name={data.Uname} />)
+          clg.map((data) => (
+            <ResultCard key={data._id} id={data._id} name={data.Uname} />
+          ))
         )}
       </div>
     </div>

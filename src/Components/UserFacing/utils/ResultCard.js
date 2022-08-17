@@ -1,9 +1,14 @@
 import React from "react";
 import classes from "../Style/ResultCard.module.css";
 import CallIcon from "@mui/icons-material/Call";
+import { useNavigate } from "react-router-dom";
 function ResultCard(props) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/college/${props.id}`);
+  };
   return (
-    <div className={classes.ResultCard}>
+    <div className={classes.ResultCard} onClick={handleClick}>
       <div className={classes.title}>
         <img src="https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80" />
         <h1>{props.name}</h1>
