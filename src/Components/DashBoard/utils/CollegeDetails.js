@@ -3,6 +3,7 @@ import classes from "../Style/CollegeDetails.module.css";
 import ShareIcon from "@mui/icons-material/Share";
 import LanguageIcon from "@mui/icons-material/Language";
 import CallIcon from "@mui/icons-material/Call";
+import EditIcon from "@mui/icons-material/Edit";
 function CollegeDetails(props) {
   return (
     <div className={classes.CollegeDetails}>
@@ -12,6 +13,7 @@ function CollegeDetails(props) {
           <h1>{props.clgName}</h1>
           <p>{props.shortDesc}</p>
         </div>
+        {props.verified && <EditIcon sx={{ ml: "7px" }} />}
       </div>
       <div className={classes.btns}>
         <button
