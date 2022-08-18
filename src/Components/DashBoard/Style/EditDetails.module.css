@@ -11,7 +11,7 @@
     text-align: left;
     margin-left: 5px;
 }
-.inpId{
+.inpField{
     margin: 0rem 0rem 0.5rem 0;
     padding: 1rem 0.5rem 1rem 0.5rem;
     border: 1px solid #DADADA;
@@ -42,9 +42,21 @@
 .imgUpload{
     display: none;
 }
+.fileUpload{
+    visibility: hidden;
+}
+.docUploadBTN{
+    width: 85px;
+    padding: 1rem 2rem 1rem 2rem;
+    color: white;
+    background: black;
+    border: none;
+    margin-left: 0rem;
+    border-radius: 8px;
+}
 
 @media (max-width: 650px){
-    .inpId{
+    .inpField{
         padding: 1rem 1rem;
         margin-bottom: 1rem;
         width: 220px;
