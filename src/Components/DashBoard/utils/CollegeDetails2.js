@@ -7,6 +7,7 @@ function CollegeDetails2(props) {
     <div className={classes.CollegeDetails}>
       <div className={classes.desc}>
         <p>{props.longDesc}</p>
+
         {props.verified && (
           <EditIcon
             onClick={() => {
@@ -24,6 +25,7 @@ function CollegeDetails2(props) {
         >
           <PinDropIcon fontSize="small" />
           <p>Locate on Maps</p>
+
         </button>
         <p>{props.clgAddress}</p>
       </div>

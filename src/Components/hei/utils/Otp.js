@@ -38,6 +38,7 @@ export default function Otp(props) {
           }
         })
         .catch((error) => console.log(error));
+
     }
   };
 
@@ -64,7 +65,6 @@ export default function Otp(props) {
             <p className={classes.enterThe}>
               Enter the verification code we just sent on your email address.
             </p>
-
             <form onSubmit={handleSubmit}>
               <div className={classes.otpContainer}>
                 <OtpInput
@@ -92,6 +92,7 @@ export default function Otp(props) {
           </div>
         </>
       )}
+
     </>
   );
 }

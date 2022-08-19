@@ -49,6 +49,7 @@ function DashBoard() {
     Uemail: "",
     Uname: "",
     _id: "",
+
     Clglogo:
       "https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80",
     Courses: [],
@@ -58,6 +59,7 @@ function DashBoard() {
     ShortDesc: "",
     Prospectus: "",
     Site: "",
+
   });
   useEffect(() => {
     const url = APIUrls.CollegeDetails();
@@ -76,7 +78,7 @@ function DashBoard() {
             ...resp.college,
           };
         });
-        console.log("details", details);
+
       })
       .catch((error) => console.log(error));
   }, []);
