@@ -10,6 +10,8 @@ import DocUpload from "./utils/DocUpload";
 import { useDispatch } from "react-redux";
 import { loginCollege } from "../../actions/auth";
 import ForgetPass from "./utils/ForgetPass";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [pass, setPwd] = useState("");
@@ -20,6 +22,7 @@ function Login() {
   const [doc, setDoc] = useState(false);
   const [forgot, setForgot] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleRegister = () => {
     if (!register) {
       setRegister(true);
@@ -43,7 +46,8 @@ function Login() {
     }
   };
   const handleLogin = () => {
-    if (email != "" && pass != "") dispatch(loginCollege(email, pass));
+    if (email != "" && pass != "")
+      dispatch(loginCollege(email, pass, navigate));
   };
   return (
     <>

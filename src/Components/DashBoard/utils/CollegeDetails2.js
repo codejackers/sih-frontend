@@ -7,12 +7,25 @@ function CollegeDetails2(props) {
     <div className={classes.CollegeDetails}>
       <div className={classes.desc}>
         <p>{props.longDesc}</p>
-        {props.verified && <EditIcon sx={{ ml: "7px" }} />}
+
+        {props.verified && (
+          <EditIcon
+            onClick={() => {
+              props.onEdit(2);
+            }}
+            sx={{ ml: "7px" }}
+          />
+        )}
       </div>
       <div className={classes.btns}>
-        <button>
-          <PinDropIcon />
-          <span>Locate on Maps</span>
+        <button
+          onClick={() => {
+            window.location.href = props.Gmap;
+          }}
+        >
+          <PinDropIcon fontSize="small" />
+          <p>Locate on Maps</p>
+
         </button>
         <p>{props.clgAddress}</p>
       </div>
