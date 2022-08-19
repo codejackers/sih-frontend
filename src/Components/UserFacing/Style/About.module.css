@@ -1,0 +1,79 @@
+.raisequery {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  padding: 20px 0;
+}
+
+.flexcol {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.raiseq {
+  color: black;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.aboutdetails {
+  letter-spacing: 0;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  margin-top:5px;
+}
+.group1 {
+  width: 155px;
+  height: 155px;
+  margin-left: -15px;
+}
+.about {
+  letter-spacing: 0;
+  margin-top: 20px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.icon {
+  margin-top: 20px;
+  width: 87px;
+  height: 82px;
+}
+.contactdetails {
+  margin-top: 30px;
+  letter-spacing: 0;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+}
+.contact {
+  margin-top: 5em;
+  gap: 10px;
+  letter-spacing: 0;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+}
+.menusize {
+  height: 40px;
+  margin-right: 50px;
+  margin-top: 20px;
+  width: 40px;
+}
