@@ -15,21 +15,6 @@ function PdfView(props) {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
-  function onDocumentLoadSuccess({ numPages }) {
-    console.log("numPages");
-    setNumPages(numPages);
-  }
-
-  const handleBack = () => {
-    if (pageNumber > 1) {
-      setPageNumber(pageNumber - 1);
-    }
-  };
-  const handleFront = () => {
-    if (numPages > pageNumber) {
-      setPageNumber(pageNumber + 1);
-    }
-  };
 
   return (
     <div
