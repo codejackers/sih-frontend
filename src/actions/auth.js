@@ -150,3 +150,28 @@ export const updatePass = throttle((Uemail, pass) => {
       .catch((error) => console.log(error));
   };
 }, 300);
+
+export const sendOtp = throttle((Uemail) => {
+  return (dispatch) => {
+    const url = APIUrls.sendOtp();
+    let body = JSON.stringify({ Uemail: Uemail });
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);

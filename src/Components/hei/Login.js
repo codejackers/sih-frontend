@@ -12,6 +12,7 @@ import { loginCollege } from "../../actions/auth";
 import ForgetPass from "./utils/ForgetPass";
 import { useNavigate } from "react-router-dom";
 
+
 function Login() {
   const [pass, setPwd] = useState("");
   const [email, setEmail] = useState("");

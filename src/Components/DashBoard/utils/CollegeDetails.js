@@ -13,6 +13,7 @@ function CollegeDetails(props) {
           <h1>{props.clgName}</h1>
           <p>{props.shortDesc}</p>
         </div>
+
         {props.verified && (
           <EditIcon
             onClick={() => {
@@ -21,6 +22,7 @@ function CollegeDetails(props) {
             sx={{ ml: "7px" }}
           />
         )}
+
       </div>
       <div className={classes.btns}>
         <button
