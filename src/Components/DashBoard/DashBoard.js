@@ -17,6 +17,7 @@ function DashBoard() {
     Uname: "",
     _id: "",
     Logo: "https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80",
+    courses: [],
   });
   useEffect(() => {
     const url = APIUrls.CollegeDetails();
@@ -34,7 +35,7 @@ function DashBoard() {
             ...resp,
           };
         });
-        console.log(details);
+        console.log(resp);
       })
       .catch((error) => console.log(error));
   }, []);
