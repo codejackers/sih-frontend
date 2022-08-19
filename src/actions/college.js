@@ -56,3 +56,28 @@ export const getCollege = throttle((name) => {
       .catch((error) => console.log(error));
   };
 }, 300);
+
+export const updateCollege = throttle((data) => {
+  return (dispatch) => {
+    const url = APIUrls.updateCollege();
+    let body = JSON.stringify(data);
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
