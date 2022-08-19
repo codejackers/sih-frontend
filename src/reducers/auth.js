@@ -19,6 +19,7 @@ const initialAuthState = {
     Uemail: "",
     UID: "",
     Verified: false,
+    Id: "",
   },
 };
 
@@ -59,6 +60,7 @@ export default function auth(state = initialAuthState, action) {
           Uemail: action.data.Uemail,
           UID: action.data.UID,
           Verified: action.data.Verified,
+          Id: action.data.Id,
         },
       };
     case REGISTER_COMPLETE:

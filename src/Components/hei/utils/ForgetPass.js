@@ -18,7 +18,7 @@ function ForgetPass() {
   return (
     <div>
       {verify ? (
-        <Otp />
+        <Otp email={email} />
       ) : (
         <div className={classes.mainDiv}>
           <NavBar name="Reset Password" />
