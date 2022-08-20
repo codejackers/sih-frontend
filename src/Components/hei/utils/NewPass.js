@@ -54,6 +54,12 @@ function NewPass(props) {
                 >
                   Reset Password
                 </button>
+                <button
+                  type="button"
+                  className={classes.btn2nd}
+                >
+                  Back
+                </button>
               </form>
             </center>
           </div>
