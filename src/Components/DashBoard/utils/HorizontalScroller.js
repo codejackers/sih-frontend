@@ -1,17 +1,29 @@
 import React from "react";
 import classes from "../Style/HorizontalScroller.module.css";
-import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 function HorizontalScroller(props) {
   return (
     <div className={classes.HorizontalScroller}>
-      {props.courses.map((data) => {
+      {props.courses.map((data) => (
         <div className={classes.Card}>
           <div className={classes.heading}>
-            <h1>{data.heading}</h1>
+            <h1>{data.CourseName}</h1>
+            {console.log(data._id)}
+            {props.verified && (
+              <button
+                className={classes.remove}
+                onClick={() => {
+                  props.onDelete({ CID: data._id });
+                }}
+              >
+                <RemoveIcon />
+              </button>
+            )}
           </div>
-          <p>{data.Desc}</p>
-        </div>;
-      })}
+          <p className={classes.Cap}>Intake capacity: {data.CourseIntakeCap}</p>
+          <p>{data.CourseDesc}</p>
+        </div>
+      ))}
       {props.verified && (
         <div
           className={classes.Card}
