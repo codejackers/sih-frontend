@@ -1,100 +1,92 @@
-.flexbox {
-    display: flex;
-     width: 100%; 
-    margin-top:39px;
-    gap:60px;
-    
-  }
-  .flexcol {
-    margin-top: 20px;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .Reset {
-    width: 276px;
-    height: 36px;
-    left: 36px;
-    top: 41px;
-    font-family: "Urbanist";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 36px;
-    color: #000000;
-    margin-left: 39px;
-  }
-  
-  .menusize {
-      size: 2rem;
-      /* margin-left:  60rem ;
-      margin-right: 1rem; */
-    }
-    
-  
-  .otpContainer {
-    width: 350px;
-    height: 60px;
-  }
-  
-  .verify {
-    width: 330px;
-    height: 56px;
-    background-color: #000000;
-    color: white;
-    margin-left: 10px;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 23px;
-    font-family: "Urbanist";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 18px;
-  
-    text-align: center;
-  }
-  
-  .OTPVeri {
-    color: black;
-    font-family: "Urbanist";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 130%;
-    letter-spacing: 0;
-    margin-top: 90px;
- 
-    align-items: center;
-    
-  
-    min-height: 36px;
-    width: 276px;
-  }
-  .otpInput {
-    display: inline;
-    letter-spacing: 0;
-    min-height: 26px;
-    width: 59px;
-    height: 50px;
-    margin: 6px;
-    border: 1.2px solid #33ff00;
-    border-radius: 8px;
-    margin-left: 15px;
-  
-  }
-  .enterThe {
-    width: 331px;
-    height: 42px;
-    left: 33px;
-    top: 323px;
-    font-family: "Urbanist";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
-    color: #a3a3a3;
-  }
-  
+
+.flexcol {
+  margin-top: 10px;
+  margin-left:10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.otpContainer {
+  margin-right:50px;
+} 
+
+.verify {
+  width: 300px;
+  height: 56px;
+  background-color: #000000;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.OTPVeri {
+  color: black;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0;
+  margin-top: 90px;
+  margin-right:159px;
+}
+.otpInput {
+  display: inline;
+  letter-spacing: 0;
+  min-height: 18px;
+  width: 50px;
+  height: 41px;
+  margin: 6px;
+  border: 1.2px solid #33ff00;
+  border-radius: 8px;
+  margin-top:45px;
+  margin-left:12px;
+}
+.enterThe {
+  width: 331px;
+  height: 42px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #a3a3a3;
+}
+
+.timer {
+  display: flex;
+  margin-top: 10px;
+  gap: 134px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  color: #a3a3a3;
+}
+.resendtbtn {
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  color: #a3a3a3;
+  cursor:pointer;
+}
+
