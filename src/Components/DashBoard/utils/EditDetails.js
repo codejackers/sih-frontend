@@ -22,8 +22,9 @@ function EditDetails(props) {
   const [pic, setPic] = useState(props.details.Clglogo);
   const [details, setDetails] = useState(props.details);
   const [course, setCourse] = useState({
-    title: "",
-    desc: "",
+    CourseName: "",
+    CourseDesc: "",
+    CourseIntakeCap: "",
   });
   // console.log(doc, pic, details);
   const handleDocUpload = async (file) => {
@@ -56,9 +57,11 @@ function EditDetails(props) {
         UCity: details.UCity,
         Prospectus: doc,
       });
+    } else {
+      props.handleSave(course);
     }
     props.handleClose();
-    window.location.reload();
+    // window.location.reload();
   };
   return (
     <div>
@@ -127,7 +130,7 @@ function EditDetails(props) {
               <p className={classes.lables}>Short description</p>
               <textarea
                 type="text"
-                maxlength="100"
+                maxLength="150"
                 placeholder="Enter short description about college"
                 className={classes.inpField}
                 onChange={(e) => {
@@ -143,7 +146,7 @@ function EditDetails(props) {
               <p className={classes.lables}>Description</p>
               <textarea
                 type="text"
-                maxlength="150"
+                maxLength="800"
                 placeholder="Enter description about the college"
                 className={classes.inpField}
                 onChange={(e) => {
@@ -197,19 +200,30 @@ function EditDetails(props) {
                 className={classes.inpField}
                 onChange={(e) => {
                   setCourse((prev) => {
-                    return { ...prev, title: e.target.value };
+                    return { ...prev, CourseName: e.target.value };
+                  });
+                }}
+              />
+              <p className={classes.lables}>Intake Capacity</p>
+              <input
+                type="text"
+                placeholder="Enter the course name"
+                className={classes.inpField}
+                onChange={(e) => {
+                  setCourse((prev) => {
+                    return { ...prev, CourseIntakeCap: e.target.value };
                   });
                 }}
               />
               <p className={classes.lables}>Course Details</p>
               <textarea
                 type="text"
-                maxlength="150"
+                maxLength="700"
                 placeholder="Enter details about the course"
                 className={classes.inpField}
                 onChange={(e) => {
                   setCourse((prev) => {
-                    return { ...prev, desc: e.target.value };
+                    return { ...prev, CourseDesc: e.target.value };
                   });
                 }}
               />

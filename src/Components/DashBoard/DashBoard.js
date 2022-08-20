@@ -9,9 +9,13 @@ import HorizontalScroller from "./utils/HorizontalScroller";
 import { useSelector } from "react-redux";
 import EditDetails from "./utils/EditDetails";
 import { useDispatch } from "react-redux";
-import { updateCollege } from "../../actions/college";
+import {
+  createCourse,
+  deleteCourse,
+  updateCollege,
+} from "../../actions/college";
 import Navbar from "../UserFacing/utils/Navbar";
-function DashBoard() {
+function DashBoard(props) {
   const { id } = useParams();
   const [popUpType, setPopUpType] = useState(1);
   const [open, setOpen] = useState(false);
@@ -39,7 +43,24 @@ function DashBoard() {
           ...data,
         })
       );
+    } else if (popUpType === 3) {
+      dispatch(
+        createCourse({
+          UID: details.UID,
+          CID: "edqweweq1234",
+          AdmissionDOC: "sdsdadssd",
+          ...data,
+        })
+      );
     }
+  };
+  const handleDeleteCourse = (data) => {
+    dispatch(
+      deleteCourse({
+        UID: details.UID,
+        ...data,
+      })
+    );
   };
   const [details, setDetails] = useState({
     Doc: "https://codejackers1.s3.amazonaws.com/photos/Final_Schedule_for_SIH_2022_Software_25_to_26th_August_2022_2.pdf",
@@ -59,7 +80,6 @@ function DashBoard() {
     ShortDesc: "",
     Prospectus: "",
     Site: "",
-
   });
   useEffect(() => {
     const url = APIUrls.CollegeDetails();
@@ -78,14 +98,13 @@ function DashBoard() {
             ...resp.college,
           };
         });
-
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <>
-      <Navbar name="DashBoard" color="#fff" />
+      <Navbar name={verified ? "Dashboard" : details.Uname} color="#fff" />
       <div style={{ maxWidth: "800px", margin: "auto", padding: "0 1rem" }}>
         <CollegeDetails
           clgName={details.Uname}
@@ -127,6 +146,7 @@ function DashBoard() {
           courses={details.Courses}
           verified={verified}
           onEdit={handleType}
+          onDelete={handleDeleteCourse}
         />
         <PdfView
           file={
