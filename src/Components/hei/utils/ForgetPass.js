@@ -48,6 +48,12 @@ function ForgetPass() {
                 >
                   Send OTP
                 </button>
+                <button
+                  type="button"
+                  className={classes.btn2nd}
+                >
+                  Back
+                </button>
               </form>
             </center>
           </div>

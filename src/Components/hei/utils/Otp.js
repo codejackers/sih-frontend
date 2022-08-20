@@ -88,6 +88,12 @@ export default function Otp(props) {
               >
                 Verify
               </button>
+              <button
+                  type="button"
+                  className={classes.btn2nd}
+                >
+                  Back
+                </button>
             </form>
           </div>
         </>
