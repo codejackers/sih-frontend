@@ -62,7 +62,19 @@ function HomePage() {
           />
         ) : (
           clg.map((data) => (
-            <ResultCard key={data._id} id={data._id} name={data.Uname} />
+            <ResultCard
+              key={data._id}
+              id={data._id}
+              name={data.Uname}
+              shortDesc={
+                data.ShortDesc != ""
+                  ? data.ShortDesc
+                  : " Lorem Ipsum es simplemente el texto de relleno de las imprentas yarchivos de texto. Lorem Ipsum ha sido el texto de relleno estándar delas industrias desde el año 1500, cuando un impresor ..."
+              }
+              email={data.Uemail}
+              contact={data.Contact}
+              Img={data.Clglogo}
+            />
           ))
         )}
       </div>

@@ -1,8 +1,7 @@
 .raisequery {
-  align-items: flex-start;
-  background-color: #ffffff;
-  display: flex;
-  padding: 20px 0;
+   margin: auto;
+  max-width: 800px;
+  text-align: justify;
 }
 
 .flexcol {
@@ -30,11 +29,14 @@
   margin-top:5px;
 }
 .group1 {
-  width: 155px;
-  height: 155px;
-  margin-left: -15px;
+  height: 130px;
+  margin: auto;
+
 }
 .about {
+  display: flex;
+  flex-direction: column;
+
   letter-spacing: 0;
   margin-top: 20px;
   font-family: "Urbanist";
@@ -44,11 +46,18 @@
   line-height: 36px;
   color: #000000;
 }
-
+.Hcontact{
+  text-align: center;
+}
+.Habout{
+  text-align: center;
+}
 .icon {
+  margin: auto;
   margin-top: 20px;
-  width: 87px;
-  height: 82px;
+  width: 60px;
+  height: 60px;
+
 }
 .contactdetails {
   margin-top: 30px;
@@ -61,7 +70,10 @@
   color: #000000;
 }
 .contact {
-  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ 
   gap: 10px;
   letter-spacing: 0;
   font-family: "Urbanist";
@@ -71,6 +83,7 @@
   line-height: 36px;
   color: #000000;
 }
+
 .menusize {
   height: 40px;
   margin-right: 50px;

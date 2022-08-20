@@ -2,6 +2,7 @@ import React from "react";
 import classes from "../Style/ResultCard.module.css";
 import CallIcon from "@mui/icons-material/Call";
 import { useNavigate } from "react-router-dom";
+import { PeopleSharp } from "@mui/icons-material";
 function ResultCard(props) {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -10,23 +11,25 @@ function ResultCard(props) {
   return (
     <div className={classes.ResultCard} onClick={handleClick}>
       <div className={classes.title}>
-        <img src="https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80" />
+        <img src={props.Img} />
         <h1>{props.name}</h1>
       </div>
       <div className={classes.desc}>
-        <p>
-          Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-          archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de
-          las industrias desde el año 1500, cuando un impresor ...
-        </p>
+        <p>{props.shortDesc}</p>
       </div>
       <div className={classes.details}>
         <h4>Contact Details:</h4>
         <div className={classes.contact}>
           <p>
-            <span>Email:</span>unic@gmail.com
+            {props.email != "" ||
+              (props.email == undefined && <span>Email:</span>)}
+            {props.email}
           </p>
-          <button href="tel:7697674313">
+          <button
+            onClick={() => {
+              window.location.href = `tel:+91${props.contact}`;
+            }}
+          >
             <CallIcon fontSize="small" sx={{ alignSelf: "center" }} />{" "}
             <p>Call</p>
           </button>

@@ -10,4 +10,6 @@ export const APIUrls = {
   verifyOtp: () => `${API_ROOT}/college/verifyotp`,
   updatePassword: () => `${API_ROOT}/college/updatePassword`,
   updateCollege: () => `${API_ROOT}/college/updateCollege`,
+  createCourse: () => `${API_ROOT}/course/createCourse`,
+  deleteCourse: () => `${API_ROOT}/course/deleteCourse`,
 };
