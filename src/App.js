@@ -4,7 +4,6 @@ import Login from "./Components/hei/Login";
 import DashBoard from "./Components/DashBoard/DashBoard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./Components/UserFacing/utils/About";
-import Otp from "./Components/hei/utils/Otp";
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/otp" element={<Otp/>}/>
 
           <Route path="/hei/Login" element={<Login />} />
           <Route path="/college/:id" element={<DashBoard />} />
