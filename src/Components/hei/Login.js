@@ -9,6 +9,9 @@ import eye from "./Img/eyeVector.png";
 import DocUpload from "./utils/DocUpload";
 import { useDispatch } from "react-redux";
 import { loginCollege } from "../../actions/auth";
+import ForgetPass from "./utils/ForgetPass";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [pass, setPwd] = useState("");
@@ -17,7 +20,9 @@ function Login() {
   const [register, setRegister] = useState(false);
   const [timeSlot, setTimeSlot] = useState(false);
   const [doc, setDoc] = useState(false);
+  const [forgot, setForgot] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleRegister = () => {
     if (!register) {
       setRegister(true);
@@ -41,7 +46,8 @@ function Login() {
     }
   };
   const handleLogin = () => {
-    if (email != "" && pass != "") dispatch(loginCollege(email, pass));
+    if (email != "" && pass != "")
+      dispatch(loginCollege(email, pass, navigate));
   };
   return (
     <>
@@ -55,6 +61,8 @@ function Login() {
         ) : (
           <Registration setSlot={handleSlot} back={handleRegister} />
         )
+      ) : forgot ? (
+        <ForgetPass />
       ) : (
         <div className={classes.mainDiv}>
           <NavBar name="University Login" />
@@ -84,7 +92,12 @@ function Login() {
                 src={eye}
               />
               <br />
-              <a className={classes.frgtPass} href="#">
+              <a
+                className={classes.frgtPass}
+                onClick={() => {
+                  setForgot(true);
+                }}
+              >
                 Forgot Password?
               </a>
               <br />

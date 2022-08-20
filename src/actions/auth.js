@@ -8,6 +8,7 @@ import {
 } from "./actionTypes";
 import { throttle } from "lodash";
 import { APIUrls } from "../helpers/urls";
+import { useNavigate } from "react-router-dom";
 
 export function verification(data) {
   return {
@@ -65,7 +66,7 @@ export const registerCollege = throttle(() => {
   };
 }, 300);
 
-export const loginCollege = throttle((Uemail, Pass) => {
+export const loginCollege = throttle((Uemail, Pass, navigate) => {
   return (dispatch) => {
     const url = APIUrls.loginCollege();
     let body = JSON.stringify({ Uemail: Uemail, Pass: Pass });
@@ -84,13 +85,67 @@ export const loginCollege = throttle((Uemail, Pass) => {
         }
       })
       .then((data) => {
-        dispatch(
-          verification({
-            Uemail: data.Uemail,
-            UID: data.UID,
-            verified: data.verified,
-          })
-        );
+        if (data.message === "Login Successful") {
+          dispatch(
+            verification({
+              Uemail: data.data.Uemail,
+              UID: data.data.UID,
+              Verified: true,
+              Id: data.data._id,
+            })
+          );
+          navigate(`/college/${data.data._id}`);
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
+
+export const sendOtp = throttle((Uemail) => {
+  return (dispatch) => {
+    const url = APIUrls.sendOtp();
+    let body = JSON.stringify({ Uemail: Uemail });
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
+
+export const updatePass = throttle((Uemail, pass) => {
+  return (dispatch) => {
+    const url = APIUrls.updatePassword();
+    let body = JSON.stringify({ Uemail: Uemail, Pass: pass });
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
       })
       .catch((error) => console.log(error));
   };

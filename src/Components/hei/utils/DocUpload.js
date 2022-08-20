@@ -47,7 +47,7 @@ function DocUpload(props) {
       })
       .catch((err) => console.error(err));
   };
-  console.log(doc);
+
   return (
     <div className={classes.mainDiv}>
       <NavBar name="Registration" />

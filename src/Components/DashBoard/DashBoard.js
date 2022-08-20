@@ -6,8 +6,62 @@ import { useParams } from "react-router-dom";
 import { APIUrls } from "../../helpers/urls";
 import { reverse } from "lodash";
 import HorizontalScroller from "./utils/HorizontalScroller";
-function DashBoard() {
+import { useSelector } from "react-redux";
+import EditDetails from "./utils/EditDetails";
+import { useDispatch } from "react-redux";
+import {
+  createCourse,
+  deleteCourse,
+  updateCollege,
+} from "../../actions/college";
+import Navbar from "../UserFacing/utils/Navbar";
+function DashBoard(props) {
   const { id } = useParams();
+  const [popUpType, setPopUpType] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [verified, setVerified] = useState(false);
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(auth.Login.Id, id);
+    if (auth.Login.Verified && auth.Login.Id === id) {
+      setVerified(true);
+    }
+  }, []);
+  const handleType = (val) => {
+    setPopUpType(val);
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleSave = (data) => {
+    if (popUpType === 1 || popUpType === 2) {
+      dispatch(
+        updateCollege({
+          UID: details.UID,
+          ...data,
+        })
+      );
+    } else if (popUpType === 3) {
+      dispatch(
+        createCourse({
+          UID: details.UID,
+          CID: "edqweweq1234",
+          AdmissionDOC: "sdsdadssd",
+          ...data,
+        })
+      );
+    }
+  };
+  const handleDeleteCourse = (data) => {
+    dispatch(
+      deleteCourse({
+        UID: details.UID,
+        ...data,
+      })
+    );
+  };
   const [details, setDetails] = useState({
     Doc: "https://codejackers1.s3.amazonaws.com/photos/Final_Schedule_for_SIH_2022_Software_25_to_26th_August_2022_2.pdf",
     Pass: "",
@@ -16,7 +70,16 @@ function DashBoard() {
     Uemail: "",
     Uname: "",
     _id: "",
-    Logo: "https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80",
+
+    Clglogo:
+      "https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80",
+    Courses: [],
+    Contact: null,
+    Gmap: "",
+    LongDesc: "",
+    ShortDesc: "",
+    Prospectus: "",
+    Site: "",
   });
   useEffect(() => {
     const url = APIUrls.CollegeDetails();
@@ -28,42 +91,72 @@ function DashBoard() {
     })
       .then((response) => response.json())
       .then((resp) => {
+        console.log(resp);
         setDetails((prev) => {
           return {
             ...prev,
-            ...resp,
+            ...resp.college,
           };
         });
-        console.log(details);
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
-    <div style={{ maxWidth: "800px", margin: "auto", padding: "0 1rem" }}>
-      <CollegeDetails
-        clgName={details.Uname}
-        clgLogo={
-          details.Logo != ""
-            ? details.Logo
-            : "https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80"
-        }
-        share={`http://localhost:3002/college/${id}`}
-        shortDesc="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-      />
-      <CollegeDetails2
-        longDesc="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-        clgAddress="--Address--"
-      />
-      <HorizontalScroller courses={[]} />
-      <PdfView
-        file={
-          details.Doc != ""
-            ? details.Doc
-            : "https://codejackers1.s3.amazonaws.com/photos/Final_Schedule_for_SIH_2022_Software_25_to_26th_August_2022_2.pdf"
-        }
-      />
-    </div>
+    <>
+      <Navbar name={verified ? "Dashboard" : details.Uname} color="#fff" />
+      <div style={{ maxWidth: "800px", margin: "auto", padding: "0 1rem" }}>
+        <CollegeDetails
+          clgName={details.Uname}
+          clgLogo={
+            details.Clglogo != ""
+              ? details.Clglogo
+              : "https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80"
+          }
+          share={`http://localhost:3002/college/${id}`}
+          shortDesc={
+            details.ShortDesc != ""
+              ? details.ShortDesc
+              : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+          }
+          onEdit={handleType}
+          Site={details.Site}
+          verified={verified}
+          Contact={details.Contact}
+        />
+        <EditDetails
+          open={open}
+          type={popUpType}
+          handleClose={handleClose}
+          handleSave={handleSave}
+          details={details}
+        />
+        <CollegeDetails2
+          longDesc={
+            details.LongDesc != ""
+              ? details.LongDesc
+              : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+          }
+          clgAddress={details.UCity != "" ? details.UCity : "--Address--"}
+          onEdit={handleType}
+          Gmap={details.Gmap}
+          verified={verified}
+        />
+        <HorizontalScroller
+          courses={details.Courses}
+          verified={verified}
+          onEdit={handleType}
+          onDelete={handleDeleteCourse}
+        />
+        <PdfView
+          file={
+            details.Prospectus != ""
+              ? details.Prospectus
+              : "https://codejackers1.s3.amazonaws.com/photos/Final_Schedule_for_SIH_2022_Software_25_to_26th_August_2022_2.pdf"
+          }
+        />
+      </div>
+    </>
   );
 }
 
