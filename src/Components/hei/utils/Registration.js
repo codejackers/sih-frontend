@@ -76,12 +76,14 @@ function Registration(props) {
             <br />
             <h2 className={classes.title}>Create new password</h2>
             <input
+              type="password"
               placeholder="New Password"
               className={classes.inpNewpass}
               name="pass"
               onChange={handleChange}
             />
             <input
+              type="password"
               placeholder="Confirm Password"
               className={classes.inpNewpass}
               name="confpass"
