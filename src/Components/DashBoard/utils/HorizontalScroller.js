@@ -13,7 +13,7 @@ function HorizontalScroller(props) {
               <button
                 className={classes.remove}
                 onClick={() => {
-                  props.onDelete({ CID: data._id });
+                  props.onDelete({ _id: data._id });
                 }}
               >
                 <RemoveIcon />
