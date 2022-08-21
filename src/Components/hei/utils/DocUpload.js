@@ -75,6 +75,7 @@ function DocUpload(props) {
                 Upload Files
               </label>
               <input
+                accept="application/pdf" 
                 id="files"
                 className={classes.fileUpload}
                 onChange={(e) => {
