@@ -23,8 +23,7 @@ function DashBoard(props) {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(auth.Login.Id, id);
-    if (auth.Login.Verified && auth.Login.Id === id) {
+    if (auth.Login?.Verified && auth.Login?.Id === id) {
       setVerified(true);
     }
   }, []);
@@ -83,7 +82,6 @@ function DashBoard(props) {
   });
   useEffect(() => {
     const url = APIUrls.CollegeDetails();
-    console.log(`${url}/${id}`);
     fetch(`${url}/${id}`, {
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +89,6 @@ function DashBoard(props) {
     })
       .then((response) => response.json())
       .then((resp) => {
-        console.log(resp);
         setDetails((prev) => {
           return {
             ...prev,
