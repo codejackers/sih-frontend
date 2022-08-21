@@ -86,6 +86,7 @@ function EditDetails(props) {
             <div>
               <label for="image">
                 <input
+                  accept="image/*"
                   className={classes.imgUpload}
                   type="file"
                   id="image"
@@ -182,6 +183,7 @@ function EditDetails(props) {
                 <label className={classes.docUploadBTN}>Upload File</label>
               </div>
               <input
+                accept="application/pdf" 
                 id="files"
                 className={classes.fileUpload}
                 type="file"
@@ -207,7 +209,7 @@ function EditDetails(props) {
               <p className={classes.lables}>Intake Capacity</p>
               <input
                 type="text"
-                placeholder="Enter the course name"
+                placeholder="Enter intake capacity"
                 className={classes.inpField}
                 onChange={(e) => {
                   setCourse((prev) => {
