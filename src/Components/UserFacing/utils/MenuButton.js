@@ -58,11 +58,6 @@ export function MenuButton() {
     //   link: undefined,
     // },
     {
-      name: "Contact Us",
-      icon: <Phone />,
-      link: "/contact",
-    },
-    {
       name: "About Us",
       icon: <PriorityHigh />,
       link: "/about",
