@@ -13,6 +13,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
 
+
+
           <Route path="/hei/Login" element={<Login />} />
           <Route path="/college/:id" element={<DashBoard />} />
         </Routes>
