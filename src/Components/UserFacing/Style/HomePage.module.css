@@ -38,9 +38,8 @@
  text-align: center;
  width: 140px;
  justify-content: space-between;
- padding: 7px;
+ padding: 10px;
  justify-self: center;
- margin-left: 1.5rem;
  border-radius: 10px;
  border: 0;
  align-self: center;
@@ -48,7 +47,7 @@
  flex-basis: 150px;
 flex-grow: 0;
 flex-shrink: 0;
- 
+ margin-right: 10px;
 }
 .Filter h4{
   align-self: center;
@@ -62,14 +61,17 @@ flex-shrink: 0;
 .FilterContainer{
   display: flex;
 }
-.FilterContainer1{
-  display: none;
+.flexOptions{
+  display: flex;
+  height: 35px;
+}
+.marginSet{
 }
 
 @media only screen and (max-width: 600px) {
   .FilterContainer{
     display: initial;
-  }
+  } 
   .contain{
     width: 300px;
     margin: auto;
