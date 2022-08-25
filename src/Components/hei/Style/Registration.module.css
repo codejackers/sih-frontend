@@ -46,6 +46,7 @@
 ::placeholder{
     color: #A3A3A3;
 }
+
 .instruction{
     color: grey;
     text-align: left;
@@ -53,6 +54,16 @@
 }
 .viewPass{
     margin-left: -1.5rem;
+
+.credentialDifferent{
+    width: 352px;
+    display: flex;
+    color: red;
+    font-size: 15px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    margin-left: 1.5rem;
+
 }
 @media (max-width: 650px){
     .inpUnivName, .inpEmail, .inpNewpass{
