@@ -17,7 +17,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [show_pass, setIsRevealPwd] = useState(false);
   const [register, setRegister] = useState(false);
-  const [timeSlot, setTimeSlot] = useState(false);
+  const [timeSlot, setTimeSlot] = useState();
   const [doc, setDoc] = useState(false);
   const [forgot, setForgot] = useState(false);
   const dispatch = useDispatch();
@@ -38,6 +38,7 @@ function Login() {
     }
   };
   const handleDoc = () => {
+    console.log("handeling doc", doc);
     if (!doc) {
       setDoc(true);
     } else {
@@ -58,14 +59,10 @@ function Login() {
   return (
     <>
       {register ? (
-        timeSlot ? (
-          doc ? (
-            <DocUpload back={handleDoc} />
-          ) : (
-            <TimeSlot setDoc={handleDoc} back={handleSlot} />
-          )
+        doc ? (
+          <DocUpload back={handleDoc} />
         ) : (
-          <Registration setSlot={handleSlot} back={handleRegister} />
+          <Registration setSlot={handleDoc} back={handleRegister} />
         )
       ) : forgot ? (
         <ForgetPass back={handleForgot} />
