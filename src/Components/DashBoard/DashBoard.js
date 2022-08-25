@@ -15,6 +15,7 @@ import {
   updateCollege,
 } from "../../actions/college";
 import Navbar from "../UserFacing/utils/Navbar";
+import CollegeNotifications from "./utils/CollegeNotifications";
 function DashBoard(props) {
   const { id } = useParams();
   const [popUpType, setPopUpType] = useState(1);
@@ -139,6 +140,7 @@ function DashBoard(props) {
           Gmap={details.Gmap}
           verified={verified}
         />
+        <CollegeNotifications />
         <HorizontalScroller
           courses={details.Courses}
           verified={verified}

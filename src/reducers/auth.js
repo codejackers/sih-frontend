@@ -13,7 +13,8 @@ const initialAuthState = {
     UID: "",
     DOC: "",
     Pass: "",
-    Slot: "",
+    VerificationToken: "",
+    UCity: "",
   },
   Login: {
     Uemail: "",
@@ -50,6 +51,8 @@ export default function auth(state = initialAuthState, action) {
           ...state.Registration,
           UID: action.data.uid,
           DOC: action.data.doc,
+          UCity: action.data.UCity,
+          VerificationToken: action.data.VerificationToken,
         },
       };
     case AUTHENTICATION:

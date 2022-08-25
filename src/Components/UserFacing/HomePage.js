@@ -13,6 +13,7 @@ function HomePage() {
   const changes = useSelector((state) => state.changes);
   const [clg, setClg] = useState([]);
   const [filter, setFilter] = useState(false);
+  const [gif, setGif] = useState(true);
   const dispatch = useDispatch();
 
   // dispatch(getAllCollege());
@@ -27,17 +28,12 @@ function HomePage() {
   useEffect(() => {
     setTimeout(() => {
       dispatch(getAllCollege());
+      setGif(false);
     }, 5000);
     setClg(changes.colleges);
   }, []);
 
   useEffect(() => {
-    // if (changes.colleges.length == 0) {
-    //   setTimeout(() => {
-    //     dispatch(getAllCollege());
-    //   }, 5000);
-    //   setClg(changes.colleges);
-    // } else {
     setClg(changes.colleges);
   }, [changes.colleges]);
 
@@ -62,13 +58,15 @@ function HomePage() {
 
         {filter ? (
           <Filter setFilter={handleFilter} />
-        ) : changes.colleges.length == 0 ? (
+        ) : gif ? (
           <Player
             style={{ height: "400px" }}
             src="https://assets9.lottiefiles.com/packages/lf20_i8mmfrht.json"
             autoplay
             loop
           />
+        ) : changes.colleges.length == 0 ? (
+          <p>This college does not exists in our database.</p>
         ) : (
           clg.map((data) => (
             <ResultCard
