@@ -35,6 +35,7 @@ function HomePage() {
 
   useEffect(() => {
     setClg(changes.colleges);
+    console.log(clg);
   }, [changes.colleges]);
 
   return (
@@ -83,6 +84,7 @@ function HomePage() {
                   ? data.ShortDesc
                   : " Lorem Ipsum es simplemente el texto de relleno de las imprentas yarchivos de texto. Lorem Ipsum ha sido el texto de relleno estándar delas industrias desde el año 1500, cuando un impresor ..."
               }
+              ReportCount={data.ReportCount}
               email={data.Uemail}
               contact={data.Contact}
               Clglogo={

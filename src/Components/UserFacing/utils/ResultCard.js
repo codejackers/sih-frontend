@@ -17,7 +17,11 @@ function ResultCard(props) {
       <div className={classes.title}>
         <img src={props.Clglogo} />
         <h1>{props.name}</h1>
-        <ToolTipComponent content="my content" />
+        {props.ReportCount > 5 && (
+          <ToolTipComponent
+            content={`Number of reports are ${props.ReportCount}`}
+          />
+        )}
       </div>
       <div className={classes.desc}>
         <p>{props.shortDesc}</p>
