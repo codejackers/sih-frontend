@@ -60,9 +60,9 @@ export function MenuButton() {
     //   link: undefined,
     // },
     {
-      name: "Raise Query",
+      name: "Report",
       icon: <PriorityHigh />,
-      link: "/query",
+      link: "/report",
     },
     {
       name: "About Us",
