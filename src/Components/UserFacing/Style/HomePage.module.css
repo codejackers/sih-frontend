@@ -67,6 +67,14 @@ flex-shrink: 0;
 }
 .marginSet{
 }
+.message{
+  font-size: 20px;
+  margin-top: 2rem;
+  padding: 4rem;
+  border-radius: 15px;
+  color: black;
+  background: #E9E9E9;
+}
 
 @media only screen and (max-width: 600px) {
   .FilterContainer{
@@ -75,5 +83,9 @@ flex-shrink: 0;
   .contain{
     width: 300px;
     margin: auto;
+  }
+  .message{
+    padding: 2rem;
+    width: 180px;
   }
 }
