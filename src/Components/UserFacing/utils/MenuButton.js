@@ -3,6 +3,7 @@ import {
   ArrowForward,
   Home,
   Menu,
+  Info,
   Headphones,
   Phone,
   PriorityHigh,
@@ -58,8 +59,13 @@ export function MenuButton() {
     //   link: undefined,
     // },
     {
-      name: "About Us",
+      name: "Raise Query",
       icon: <PriorityHigh />,
+      link: "/query",
+    },
+    {
+      name: "About Us",
+      icon: <Info />,
       link: "/about",
     },
   ];
