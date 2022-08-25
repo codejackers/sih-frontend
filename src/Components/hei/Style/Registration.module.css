@@ -77,3 +77,36 @@
     font-size: 15px;
   }
 }
+.instruction{
+    color: grey;
+    text-align: left;
+    padding-left: 2rem;
+}
+.viewPass{
+    margin-left: -1.5rem;
+}
+.credentialDifferent{
+    width: 352px;
+    display: flex;
+    color: red;
+    font-size: 15px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    margin-left: 1.5rem;
+
+}
+@media (max-width: 650px){
+    .inpUnivName, .inpEmail, .inpNewpass{
+        padding: 1rem 1rem;
+        margin: auto;
+        margin-top: 1rem;
+        border-radius: 10px;
+        width: 300px;
+        text-align: left;
+    }
+    .btn{
+        padding: 1.2rem 0.5rem 2.5rem 0.5rem;
+        width: 150px;
+        font-size: 15px;
+    }
+}

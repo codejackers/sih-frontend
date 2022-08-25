@@ -12,6 +12,7 @@ import { loginCollege } from "../../actions/auth";
 import ForgetPass from "./utils/ForgetPass";
 import { useNavigate } from "react-router-dom";
 import { SettingsSystemDaydreamTwoTone } from "@mui/icons-material";
+import { set } from "lodash";
 
 function Login() {
   const [pass, setPwd] = useState("");
@@ -22,7 +23,7 @@ function Login() {
   const [doc, setDoc] = useState(false);
   const [forgot, setForgot] = useState(false);
   const [checkCreds, setCheckCreds] = useState(false);
-
+  const [val, setVal] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleRegister = () => {
@@ -69,6 +70,13 @@ function Login() {
     } else {
       setCheckCreds(true);
     }
+  const handleValue = () => {
+    setVal(true);
+  };
+  const handleLogin = () => {
+    if (email != "" && pass != "")
+      dispatch(loginCollege(email, pass, navigate, handleValue));
+
   };
 
   return (
