@@ -78,7 +78,7 @@ function DocUpload(props) {
       <div className={classes.formBody}>
         <center>
           <form>
-            <h2 className={classes.title}>Document Upload</h2>
+            <h2 className={classes.title}>Details Upload</h2>
             <p className={classes.info}>
               Upload supporting documents here to verify the authenticity of
               your registration
