@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { loginCollege } from "../../actions/auth";
 import ForgetPass from "./utils/ForgetPass";
 import { useNavigate } from "react-router-dom";
+import { set } from "lodash";
 
 function Login() {
   const [pass, setPwd] = useState("");
@@ -20,6 +21,7 @@ function Login() {
   const [timeSlot, setTimeSlot] = useState();
   const [doc, setDoc] = useState(false);
   const [forgot, setForgot] = useState(false);
+  const [val, setVal] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleRegister = () => {
@@ -52,9 +54,12 @@ function Login() {
       setForgot(false);
     }
   };
+  const handleValue = () => {
+    setVal(true);
+  };
   const handleLogin = () => {
     if (email != "" && pass != "")
-      dispatch(loginCollege(email, pass, navigate));
+      dispatch(loginCollege(email, pass, navigate, handleValue));
   };
   return (
     <>
@@ -96,9 +101,11 @@ function Login() {
               />
               <br />
               <div className={classes.mssg}>
-                <p className={classes.credentialDifferent}>Bad Credentials !!</p>
+                <p className={classes.credentialDifferent}>
+                  {val && "Bad Credentials !!"}
+                </p>
                 <a className={classes.frgtPass} onClick={handleForgot}>
-                Forgot Password?
+                  Forgot Password?
                 </a>
               </div>
               <br />
