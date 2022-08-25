@@ -1,5 +1,7 @@
 import NavBar from "../../UserFacing/utils/Navbar";
 import React, { useState } from "react";
+import validator from "validator";
+
 import { useDispatch } from "react-redux";
 import { registerEmailNamePass } from "../../../actions/auth";
 import MenuButton from "../../UserFacing/utils/MenuButton";
@@ -7,6 +9,10 @@ import classes from "../Style/Registration.module.css";
 import eye from "../Img/eyeVector.png";
 function Registration(props) {
   const dispatch = useDispatch();
+  const [emailError, setEmailError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [passError, setPassError] = useState(false);
+  const [confPassError, setConfPassError] = useState(false);
   const [data, setData] = useState({
     email: "",
     name: "",
@@ -26,25 +32,49 @@ function Registration(props) {
         });
         break;
       case "email":
-        setData({
-          ...data,
-          email: e.target.value,
-        });
+        if (e.target.value && !validator.isEmail(e.target.value)) {
+          setEmailError(true);
+        } else {
+          setEmailError(false);
+          setData({
+            ...data,
+            email: e.target.value,
+          });
+        }
         break;
       case "pass":
-        setData({
-          ...data,
-          pass: e.target.value,
-        });
+        if (e.target.value && !validator.isStrongPassword(e.target.value)) {
+          setPassError(true);
+        } else {
+          setPassError(false);
+          setData({
+            ...data,
+            pass: e.target.value,
+          });
+        }
       case "confpass":
-        setConfPass(e.target.value);
+        if (
+          e.target.value &&
+          data.pass &&
+          !validator.equals(e.target.value, data.pass)
+        ) {
+          setConfPassError(true);
+        } else {
+          setConfPassError(false);
+          setConfPass(e.target.value);
+        }
       default:
         break;
     }
   };
 
   const handleNext = () => {
-    if (data.pass == confPass) {
+    if (!data.email) setEmailError(true);
+    if (!data.pass) setPassError(true);
+    if (!data.name) setNameError(true);
+    if (!confPass) setConfPassError(true);
+
+    if (data.pass && confPass && data.pass == confPass) {
       dispatch(registerEmailNamePass(data));
       props.setSlot();
     }
@@ -66,13 +96,23 @@ function Registration(props) {
               onChange={handleChange}
               className={classes.inpEmail}
             />
+            {emailError && (
+              <p className={classes.errorMessage}>
+                Your Email should be valid.
+              </p>
+            )}
             <input
               className={classes.inpUnivName}
               placeholder="University Name"
               type="text"
               name="name"
               onChange={handleChange}
-            />{" "}
+            />
+            {emailError && (
+              <p className={classes.errorMessage}>
+                University Name cannot be empty.
+              </p>
+            )}
             <br />
             <br />
             <h2 className={classes.title}>Create new password</h2>
@@ -90,12 +130,21 @@ function Registration(props) {
               name="pass"
               onChange={handleChange}
             />
+
+            {passError && (
+              <p className={classes.errorMessage}>
+                Your Password must be 8 letters long and include atleast 1
+                capital letter, a number and a special character.
+              </p>
+            )}
+
             <img
               className={classes.viewPass}
               title={show_pass ? "Hide password" : "Show password"}
               onClick={() => setIsRevealPwd((prevState) => !prevState)}
               src={eye}
             />
+
             <input
               type="password"
               placeholder="Confirm Password"
@@ -103,6 +152,9 @@ function Registration(props) {
               name="confpass"
               onChange={handleChange}
             />
+            {confPassError && (
+              <p className={classes.errorMessage}>Both Password must match .</p>
+            )}
             <p className={classes.credentialDifferent}>Password dont match !</p>
             <div className={classes.btns}>
               <button
