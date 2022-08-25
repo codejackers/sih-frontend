@@ -75,7 +75,7 @@ export function MenuButton() {
   const sm = useDesktop();
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const changes = useSelector((state) => state.changes);
+  const auth = useSelector((state) => state.auth);
 
   return (
     <>
@@ -145,28 +145,34 @@ export function MenuButton() {
                   </>
                 );
               })}
-              <>
-                    <ListItemButton
-                      sx={{
-                        color: "#545454",
-                        fontSize: "44px",
-                        marginLeft: "7px",
-                        mr: "10px",
-                      }}
-                    >
-                      <ExitToApp sx={{ fontSize: "46px" }}></ExitToApp>
-                      <ListItemText
+              {auth.Login.Verified && (
+                <>
+                  <ListItemButton
+                    onClick={() => {
+                      window.location.reload(false);
+                    }}
+                    sx={{
+                      color: "#545454",
+                      fontSize: "44px",
+                      marginLeft: "7px",
+                      mr: "10px",
+                    }}
+                  >
+                    <ExitToApp sx={{ fontSize: "46px" }}></ExitToApp>
+                    <ListItemText
                       sx={{
                         color: "black",
-                        marginLeft: "5px"
+                        marginLeft: "5px",
                       }}
-                        primary={
-                          
-                          <span style={{ fontSize: "30px" }}><p>Logout</p></span>
-                        }
-                      />
-                    </ListItemButton>
-                  </>
+                      primary={
+                        <span style={{ fontSize: "30px" }}>
+                          <p>Logout</p>
+                        </span>
+                      }
+                    />
+                  </ListItemButton>
+                </>
+              )}
             </List>
           </Box>
           <Box

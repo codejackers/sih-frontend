@@ -1,12 +1,19 @@
 import NavBar from "../../UserFacing/utils/Navbar";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classes from "../Style/DocUpload.module.css";
 import { useDispatch } from "react-redux";
-import { addFile, registerCollege, registerUID } from "../../../actions/auth";
+import {
+  addFile,
+  captchaVerify,
+  registerCollege,
+  registerUID,
+} from "../../../actions/auth";
 import SucccessPopup from "./SucccessPopup";
 import { useNavigate } from "react-router-dom";
 import { PinDropSharp } from "@mui/icons-material";
 import S3FileUpload from "react-s3";
+import ReCAPTCHA from "react-google-recaptcha";
+// import Captcha from "./Captcha";
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 const S3_BUCKET = process.env.REACT_APP_S3_BUCKET;
@@ -21,12 +28,14 @@ const config = {
   secretAccessKey: SECRET_ACCESS_KEY,
   dirName: "photos",
 };
+
 function DocUpload(props) {
   const [UID, setUID] = useState("");
   const [uCity, setUCity] = useState("");
   const [VerificationToken, setVerificationToken] = useState("");
   const [open, setOpen] = useState(false);
   const [doc, setDoc] = useState("");
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const handleNext = () => {
@@ -39,10 +48,11 @@ function DocUpload(props) {
           VerificationToken: VerificationToken,
         })
       );
-      setTimeout(() => {
-        dispatch(registerCollege());
-      }, 100);
-      setOpen(true);
+      dispatch(captchaVerify());
+      // setTimeout(() => {
+      //   dispatch(registerCollege());
+      // }, 100);
+      // setOpen(true);
     }
   };
   const handleClose = () => {
@@ -56,7 +66,7 @@ function DocUpload(props) {
       })
       .catch((err) => console.error(err));
   };
-
+  let captchaRef = useRef(null);
   return (
     <div className={classes.mainDiv}>
       <NavBar name="Registration" />
@@ -112,6 +122,14 @@ function DocUpload(props) {
                 required
               />
             </div>
+
+            <ReCAPTCHA
+              sitekey="6LfSr6ghAAAAANogFLUTTs_1M3Y7LwwQ_Ki9U0jI"
+              ref={captchaRef}
+              onChange={(e) => {
+                dispatch(captchaVerify(e));
+              }}
+            />
             <button type="button" className={classes.btn} onClick={handleNext}>
               Send Registration Request
             </button>
