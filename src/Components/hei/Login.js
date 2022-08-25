@@ -95,9 +95,12 @@ function Login() {
                 src={eye}
               />
               <br />
-              <a className={classes.frgtPass} onClick={handleForgot}>
+              <div className={classes.mssg}>
+                <p className={classes.credentialDifferent}>Bad Credentials !!</p>
+                <a className={classes.frgtPass} onClick={handleForgot}>
                 Forgot Password?
-              </a>
+                </a>
+              </div>
               <br />
               <button
                 type="button"
