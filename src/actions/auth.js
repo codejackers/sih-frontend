@@ -65,7 +65,7 @@ export const registerCollege = throttle(() => {
       .catch((error) => console.log(error));
   };
 }, 300);
-export const captchaVerify = throttle((val) => {
+export const captchaVerify = throttle((val, func) => {
   return (dispatch, getState) => {
     const { auth } = getState();
     const url = APIUrls.captchaVerify();
@@ -85,7 +85,9 @@ export const captchaVerify = throttle((val) => {
         }
       })
       .then((data) => {
-        console.log(data);
+        if (data.success) {
+          func();
+        }
       })
       .catch((error) => console.log(error));
   };

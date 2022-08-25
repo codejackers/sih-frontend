@@ -3,6 +3,7 @@ import classes from "../Style/ResultCard.module.css";
 import CallIcon from "@mui/icons-material/Call";
 import { useNavigate } from "react-router-dom";
 import { PeopleSharp } from "@mui/icons-material";
+import ToolTipComponent from "../../../helpers/ToolTipComponent";
 function ResultCard(props) {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -13,6 +14,7 @@ function ResultCard(props) {
       <div className={classes.title}>
         <img src={props.Clglogo} />
         <h1>{props.name}</h1>
+        <ToolTipComponent content="my content" />
       </div>
       <div className={classes.desc}>
         <p>{props.shortDesc}</p>
