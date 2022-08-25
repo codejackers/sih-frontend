@@ -40,15 +40,27 @@ function HomePage() {
     // } else {
     setClg(changes.colleges);
   }, [changes.colleges]);
+
   return (
     <div className={classes.HomePage}>
       <Navbar color="#fff" />
       <div className={classes.container}>
         {!filter && (
-          <button className={classes.Filter} onClick={handleFilter}>
-            <h4>Filter Results </h4>
-            <FilterAltIcon sx={{ alignSelf: "center" }} />
-          </button>
+          <div className={classes.contain}>
+            <div className={classes.FilterContainer}>
+              <SearchBar placeholder="Search Query" val={2} />
+              <button className={classes.Filter} onClick={handleFilter}>
+                <h4>Filter Results </h4>
+                <FilterAltIcon sx={{ alignSelf: "center" }} />
+              </button>
+            </div>
+            <div className={classes.FilterContainer1}>
+              <button className={classes.Filter} onClick={handleFilter}>
+                <h4>Filter Results </h4>
+                <FilterAltIcon sx={{ alignSelf: "center" }} />
+              </button>
+            </div>
+          </div>
         )}
 
         {filter ? (
@@ -73,7 +85,11 @@ function HomePage() {
               }
               email={data.Uemail}
               contact={data.Contact}
-              Img={data.Clglogo}
+              Clglogo={
+                data.Clglogo === "" || data.Clglogo === undefined
+                  ? "https://codejackers1.s3.ap-south-1.amazonaws.com/photos/HolderUniv.svg"
+                  : data.Clglogo
+              }
             />
           ))
         )}
