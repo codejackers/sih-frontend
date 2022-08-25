@@ -12,4 +12,5 @@ export const APIUrls = {
   updateCollege: () => `${API_ROOT}/college/updateCollege`,
   createCourse: () => `${API_ROOT}/course/createCourse`,
   deleteCourse: () => `${API_ROOT}/course/deleteCourse`,
+  captchaVerify: () => `${API_ROOT}/captchaVerify`,
 };

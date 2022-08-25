@@ -65,6 +65,31 @@ export const registerCollege = throttle(() => {
       .catch((error) => console.log(error));
   };
 }, 300);
+export const captchaVerify = throttle((val) => {
+  return (dispatch, getState) => {
+    const { auth } = getState();
+    const url = APIUrls.captchaVerify();
+    let body = JSON.stringify({ captcha: val });
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
 
 export const loginCollege = throttle((Uemail, Pass, navigate) => {
   return (dispatch) => {
