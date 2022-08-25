@@ -12,7 +12,6 @@ import { loginCollege } from "../../actions/auth";
 import ForgetPass from "./utils/ForgetPass";
 import { useNavigate } from "react-router-dom";
 
-
 function Login() {
   const [pass, setPwd] = useState("");
   const [email, setEmail] = useState("");
@@ -45,6 +44,13 @@ function Login() {
       setDoc(false);
     }
   };
+  const handleForgot = () => {
+    if (!forgot) {
+      setForgot(true);
+    } else {
+      setForgot(false);
+    }
+  };
   const handleLogin = () => {
     if (email != "" && pass != "")
       dispatch(loginCollege(email, pass, navigate));
@@ -62,7 +68,7 @@ function Login() {
           <Registration setSlot={handleSlot} back={handleRegister} />
         )
       ) : forgot ? (
-        <ForgetPass />
+        <ForgetPass back={handleForgot} />
       ) : (
         <div className={classes.mainDiv}>
           <NavBar name="University Login" />
@@ -92,12 +98,7 @@ function Login() {
                 src={eye}
               />
               <br />
-              <a
-                className={classes.frgtPass}
-                onClick={() => {
-                  setForgot(true);
-                }}
-              >
+              <a className={classes.frgtPass} onClick={handleForgot}>
                 Forgot Password?
               </a>
               <br />

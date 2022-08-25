@@ -23,6 +23,7 @@ function SearchBar(props) {
       variant="outlined"
       onChange={handleChange}
       placeholder={props.placeholder}
+      sx={{ mr: "1rem" }}
       InputProps={{
         className: props.val == 1 ? classes.input : classes.input1,
         startAdornment: (
