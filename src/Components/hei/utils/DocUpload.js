@@ -23,13 +23,22 @@ const config = {
 };
 function DocUpload(props) {
   const [UID, setUID] = useState("");
+  const [uCity, setUCity] = useState("");
+  const [VerificationToken, setVerificationToken] = useState("");
   const [open, setOpen] = useState(false);
   const [doc, setDoc] = useState("");
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const handleNext = () => {
     if (UID != "") {
-      dispatch(registerUID({ uid: UID, doc: doc }));
+      dispatch(
+        registerUID({
+          uid: UID,
+          doc: doc,
+          UCity: uCity,
+          VerificationToken: VerificationToken,
+        })
+      );
       setTimeout(() => {
         dispatch(registerCollege());
       }, 100);
@@ -69,13 +78,31 @@ function DocUpload(props) {
               className={classes.inpId}
               required
             />
+            <input
+              type="text"
+              onChange={(e) => {
+                setUCity(e.target.value);
+              }}
+              placeholder="City"
+              className={classes.inpId}
+              required
+            />
+            <input
+              type="text"
+              onChange={(e) => {
+                setVerificationToken(e.target.value);
+              }}
+              placeholder="Verification Token"
+              className={classes.inpId}
+              required
+            />
             <div className={classes.uploadDocFlex}>
               <p className={classes.infoDoc}>Supporting Documents</p>
               <label htmlFor="files" className={classes.label}>
                 Upload Files
               </label>
               <input
-                accept="application/pdf" 
+                accept="application/pdf"
                 id="files"
                 className={classes.fileUpload}
                 onChange={(e) => {

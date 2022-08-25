@@ -1,0 +1,21 @@
+.CollegeNotifications{
+    height: 400px;
+    padding: 1rem;
+    margin: 1rem 2rem;
+    background-color: #E9E9E9;
+    border-radius: 8px;
+    overflow-x: scroll;
+}
+.Notification{
+
+    background-color: white;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+}
+.Notification p{
+    color: grey;
+}
+.Notification h3{
+    font-size: 18px;
+}
