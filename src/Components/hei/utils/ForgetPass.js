@@ -14,11 +14,18 @@ function ForgetPass(props) {
       dispatch(sendOtp(email));
       setVerify(true);
     }
+    
+    
   };
+  const handleClose =()=>{
+  
+    setVerify(false);
+
+  }
   return (
     <div>
       {verify ? (
-        <Otp email={email} />
+        <Otp email={email} back={handleClose}/>
       ) : (
         <div className={classes.mainDiv}>
           <NavBar name="Reset Password" />
