@@ -43,6 +43,7 @@
     color: grey;
     margin-left: 13.8rem;
     text-decoration: none;
+    cursor: pointer;
 }
 
 @media (max-width: 650px){

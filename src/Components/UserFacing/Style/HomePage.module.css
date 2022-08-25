@@ -42,6 +42,12 @@
  justify-self: center;
  margin-left: 1.5rem;
  border-radius: 10px;
+ border: 0;
+ align-self: center;
+ margin-top: 1rem;
+ flex-basis: 150px;
+flex-grow: 0;
+flex-shrink: 0;
  
 }
 .Filter h4{
@@ -52,4 +58,20 @@
   max-width: 800px;
   margin: auto;
  
+}
+.FilterContainer{
+  display: flex;
+}
+.FilterContainer1{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .FilterContainer{
+    display: initial;
+  }
+  .contain{
+    width: 300px;
+    margin: auto;
+  }
 }
