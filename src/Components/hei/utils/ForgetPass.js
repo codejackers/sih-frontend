@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { sendOtp } from "../../../actions/auth";
 import Otp from "./Otp";
 
-function ForgetPass() {
+function ForgetPass(props) {
   const [email, setEmail] = useState("");
   const [verify, setVerify] = useState(false);
   const dispatch = useDispatch();
@@ -18,9 +18,7 @@ function ForgetPass() {
   return (
     <div>
       {verify ? (
-
         <Otp email={email} />
-
       ) : (
         <div className={classes.mainDiv}>
           <NavBar name="Reset Password" />
@@ -51,6 +49,9 @@ function ForgetPass() {
                 <button
                   type="button"
                   className={classes.btn2nd}
+                  onClick={() => {
+                    props.back();
+                  }}
                 >
                   Back
                 </button>

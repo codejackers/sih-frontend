@@ -3,11 +3,12 @@
   background-color: #E9E9E9;
   border-radius: 10px;
   align-self: right;
-  max-width: 25rem;
+  /* max-width: 25rem; */
   align-self: center;
   margin: 0;
   margin-top: 25px;
   border: none;
+
 
 }
 .input::-ms-input-placeholder {
@@ -18,7 +19,8 @@
   background-color: #ffffff;
   border: 0;
   border-radius: 10px;
-  align-self: right;
+  /* align-self: right; */
+  width: 300px;
 }
 .input1::-ms-input-placeholder {
   align-self: right;

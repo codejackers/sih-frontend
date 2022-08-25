@@ -11,7 +11,7 @@ function ResultCard(props) {
   return (
     <div className={classes.ResultCard} onClick={handleClick}>
       <div className={classes.title}>
-        <img src={props.Img} />
+        <img src={props.Clglogo} />
         <h1>{props.name}</h1>
       </div>
       <div className={classes.desc}>

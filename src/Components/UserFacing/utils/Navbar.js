@@ -29,21 +29,19 @@ function Navbar(props) {
           style={{ margin: "auto", justifySelf: "center", marginLeft: 0 }}
         />
       </div> */}
-      {location.pathname === "/" ? (
-        <SearchBar placeholder="Search Query" val={1} />
-      ) : (
-        <h1
-          style={{
-            margin: "auto",
-            justifySelf: "center",
-            marginLeft: 0,
-            marginTop: "25px",
-            fontFamily: "urbanist",
-          }}
-        >
-          {props.name}
-        </h1>
-      )}
+
+      <h1
+        style={{
+          margin: "auto",
+          justifySelf: "center",
+          marginLeft: 0,
+          marginTop: "25px",
+          fontFamily: "urbanist",
+        }}
+      >
+        {props.name}
+      </h1>
+
       {!props.hidden && (
         <MenuButton sx={{ fontSize: "Large" }} fontSize="Large" />
       )}
