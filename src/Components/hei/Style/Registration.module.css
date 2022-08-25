@@ -46,7 +46,15 @@
 ::placeholder{
     color: #A3A3A3;
 }
-
+.credentialDifferent{
+    width: 352px;
+    display: flex;
+    color: red;
+    font-size: 15px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    margin-left: 1.5rem;
+}
 @media (max-width: 650px){
     .inpUnivName, .inpEmail, .inpNewpass{
         padding: 1rem 1rem;
