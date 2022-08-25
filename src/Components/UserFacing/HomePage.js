@@ -49,16 +49,13 @@ function HomePage() {
           <div className={classes.contain}>
             <div className={classes.FilterContainer}>
               <SearchBar placeholder="Search Query" val={2} />
-              <button className={classes.Filter} onClick={handleFilter}>
-                <h4>Filter Results </h4>
-                <FilterAltIcon sx={{ alignSelf: "center" }} />
-              </button>
-            </div>
-            <div className={classes.FilterContainer1}>
-              <button className={classes.Filter} onClick={handleFilter}>
-                <h4>Filter Results </h4>
-                <FilterAltIcon sx={{ alignSelf: "center" }} />
-              </button>
+              <div className={classes.flexOptions}>
+                <button className={classes.Filter} onClick={handleFilter}>
+                  <h4>Filter Results </h4>
+                  <FilterAltIcon sx={{ alignSelf: "center" }} />
+                </button>
+                <div id="google_translate_element" class="goog-te-gadget Filter marginSet"></div>
+              </div>
             </div>
           </div>
         )}

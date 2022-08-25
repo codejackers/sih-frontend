@@ -10,7 +10,7 @@ function CollegeDetails(props) {
       <div className={classes.heading}>
         <img src={props.clgLogo} alt="University logo" />
         <div className={classes.desc}>
-          <h1>{props.clgName}</h1>
+          <h1><b>{props.clgName}</b></h1>
           <p>{props.shortDesc}</p>
         </div>
 
