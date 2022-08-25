@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { registerEmailNamePass } from "../../../actions/auth";
 import MenuButton from "../../UserFacing/utils/MenuButton";
 import classes from "../Style/Registration.module.css";
-
+import eye from "../Img/eyeVector.png";
 function Registration(props) {
   const dispatch = useDispatch();
   const [data, setData] = useState({
@@ -13,6 +13,7 @@ function Registration(props) {
     pass: "",
   });
   const [confPass, setConfPass] = useState("");
+  const [show_pass, setIsRevealPwd] = useState(false);
   const handleChange = (e) => {
     console.log(e.target.name);
     let attr = e.target.name;
@@ -75,12 +76,25 @@ function Registration(props) {
             <br />
             <br />
             <h2 className={classes.title}>Create new password</h2>
+            <div className={classes.instruction}>
+              <p>Password must contain:-</p>
+              <p>- Atleast 8 character </p>
+              <p>- Atleast one uppercase character </p>
+              <p>- Atleast one lowercase character </p>
+              <p>- Atleast one symbol </p>
+            </div>
             <input
-              type="password"
               placeholder="New Password"
               className={classes.inpNewpass}
+              type={show_pass ? "text" : "password"}
               name="pass"
               onChange={handleChange}
+            />
+            <img
+              className={classes.viewPass}
+              title={show_pass ? "Hide password" : "Show password"}
+              onClick={() => setIsRevealPwd((prevState) => !prevState)}
+              src={eye}
             />
             <input
               type="password"
