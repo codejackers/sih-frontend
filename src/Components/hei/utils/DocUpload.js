@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { PinDropSharp } from "@mui/icons-material";
 import S3FileUpload from "react-s3";
 import ReCAPTCHA from "react-google-recaptcha";
+import { APIUrls } from "../../../helpers/urls";
 // import Captcha from "./Captcha";
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
@@ -35,7 +36,7 @@ function DocUpload(props) {
   const [VerificationToken, setVerificationToken] = useState("");
   const [open, setOpen] = useState(false);
   const [doc, setDoc] = useState("");
-  const [dis, setDis] = useState(true);
+  const [dis, setDis] = useState(false);
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const handleNext = () => {
@@ -61,6 +62,31 @@ function DocUpload(props) {
   const handleDis = () => {
     console.log("clicked handledis");
     setDis(false);
+  };
+  const handleCaptcha = (e) => {
+    const url = APIUrls.captchaVerify();
+    let body = JSON.stringify({ captcha: e });
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        if (data.success) {
+          console.log(data.success);
+          setDis(true);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleUpload = async (file) => {
@@ -129,12 +155,17 @@ function DocUpload(props) {
 
             <ReCAPTCHA
               sitekey="6LfSr6ghAAAAANogFLUTTs_1M3Y7LwwQ_Ki9U0jI"
-              ref={captchaRef}
               onChange={(e) => {
-                dispatch(captchaVerify(e, handleDis));
+                handleCaptcha(e);
               }}
             />
-            <button type="button" className={classes.btn} onClick={handleNext}>
+            <button
+              type="button"
+              className={classes.btn}
+              disabled={dis}
+              style={{ backgroundColor: dis ? "black" : "grey" }}
+              onClick={handleNext}
+            >
               Send Registration Request
             </button>
             <button
