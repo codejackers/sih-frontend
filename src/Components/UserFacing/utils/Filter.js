@@ -3,14 +3,21 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import classes from "../Style/Filter.module.css";
 import { States, Cities } from "../../../helpers/StatesAndCities";
+import { useDispatch } from "react-redux";
+import { filterCollege } from "../../../actions/college";
 function Filter(props) {
+  const dispatch = useDispatch();
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+  const handleApply = () => {
+    dispatch(filterCollege(city));
+    props.setFilter();
+  };
   return (
     <div className={classes.Filter}>
       <h1>Filter Results</h1>
       <br></br>
-      <TextField
+      {/* <TextField
         id="outlined-select-currency"
         select
         label="Filter by State"
@@ -24,7 +31,7 @@ function Filter(props) {
             {option.name}
           </MenuItem>
         ))}
-      </TextField>
+      </TextField> */}
       <br />
       <TextField
         id="outlined-select-currency"
@@ -55,7 +62,9 @@ function Filter(props) {
         >
           Back
         </button>
-        <button className={classes.apply}>Apply</button>
+        <button className={classes.apply} onClick={handleApply}>
+          Apply
+        </button>
       </div>
     </div>
   );

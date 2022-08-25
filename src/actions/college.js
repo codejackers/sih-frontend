@@ -32,6 +32,29 @@ export function getAllCollege() {
       .catch((error) => console.log(error));
   };
 }
+export function filterCollege(city) {
+  return (dispatch) => {
+    const url = APIUrls.filterCollege() + `?city=${city}`;
+
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        dispatch(saveCollegeData(data));
+      })
+      .catch((error) => console.log(error));
+  };
+}
 
 export const getCollege = throttle((name) => {
   return (dispatch) => {
