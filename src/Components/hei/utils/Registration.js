@@ -89,6 +89,7 @@ function Registration(props) {
               name="confpass"
               onChange={handleChange}
             />
+            <p className={classes.credentialDifferent}>Password dont match !</p>
             <div className={classes.btns}>
               <button
                 type="button"
