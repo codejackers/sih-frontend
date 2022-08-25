@@ -1,0 +1,86 @@
+.mainDiv{
+    font-family: Urbanist;
+    margin-top: -50px;
+}
+.uploadDocFlex{
+    display: flex;
+    justify-content: space-between;
+}
+.title, .info{
+    margin:  1rem 1rem 1rem 20px;
+    text-align: left;
+}
+textarea{
+    font-family: urbanist;
+}
+.formBody{
+    margin: auto;
+    max-width: 400px;
+    margin-top: 100px;
+}
+.info, .infoDoc{
+    color: #A3A3A3;
+}
+.inpId, .btn, .btn2nd{
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    border: 1px solid #DADADA;
+    background: #F7F8F9;
+    border-radius: 8px;
+    width: 350px;
+    font-size: 15px;
+}
+.fileUpload{
+    visibility: hidden;
+}
+.uploadDocFlex{
+    margin: 1.5rem 0rem 1rem 0;
+}
+.infoDoc{
+    width: 800px;
+    margin-left: 0.8rem;
+}
+.label{
+    width: 300px;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-right: -3.5rem;
+    color: white;
+    background: black;
+    border: none;
+    border-radius: 8px;
+}
+.btn{
+    width: 368px;
+    height: 60px;    
+    text-align: center;
+    color: white;    
+    background-color: black;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+::placeholder{
+    color: #A3A3A3;
+}
+
+
+@media (max-width: 650px){
+    .inpId{
+        padding: 1rem 1rem;
+        margin: auto;
+        margin-top: 1rem;
+        width: 300px;
+    }
+    .btn, .btn2nd{
+        padding: 1.2rem 0.5rem 2.5rem 0.5rem;
+        width: 335px;
+        font-size: 15px;
+    }
+    .formBody{
+        margin-top: 50px;
+    }
+    .infoDoc{
+        width: 600px;
+        margin-left: 0.8rem;
+    }
+}
