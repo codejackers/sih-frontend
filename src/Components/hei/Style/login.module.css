@@ -41,9 +41,20 @@
 }
 .frgtPass{
     color: grey;
-    margin-left: 13.8rem;
     text-decoration: none;
     cursor: pointer;
+}
+.mssg{
+    width: 352px;
+    display: flex;
+    color: red;
+    font-size: 15px;
+    margin-top: 0.5rem;
+}
+.credentialDifferent{
+    font-weight: 600;
+    margin-left: -0.7rem;
+    
 }
 
 @media (max-width: 650px){
@@ -58,7 +69,15 @@
     .btn{
         margin-top: 2rem;
     }
+    .mssg{
+        width: 310px;
+        
+    }
     .loginImage{
         width: 10rem;
+    }
+    .credentialDifferent{
+        font-weight: 600;
+        
     }
 }
