@@ -93,7 +93,7 @@ export const captchaVerify = throttle((val, func) => {
   };
 }, 300);
 
-export const loginCollege = throttle((Uemail, Pass, navigate) => {
+export const loginCollege = throttle((Uemail, Pass, navigate, handleCred) => {
   return (dispatch) => {
     const url = APIUrls.loginCollege();
     let body = JSON.stringify({ Uemail: Uemail, Pass: Pass });
@@ -106,8 +106,10 @@ export const loginCollege = throttle((Uemail, Pass, navigate) => {
     })
       .then((response) => {
         if (response.ok) {
+          handleCred(true);
           return response.json();
         } else {
+          handleCred(false);
           throw response.status;
         }
       })
