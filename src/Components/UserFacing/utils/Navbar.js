@@ -13,7 +13,7 @@ function Navbar(props) {
       display={"flex"}
       position={"sticky"}
       top={0}
-      backgroundColor={props.color}
+      backgroundColor={"white"}
       pl={3}
       pr={3}
       zIndex={2}
