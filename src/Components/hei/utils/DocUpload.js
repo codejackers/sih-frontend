@@ -35,7 +35,7 @@ function DocUpload(props) {
   const [VerificationToken, setVerificationToken] = useState("");
   const [open, setOpen] = useState(false);
   const [doc, setDoc] = useState("");
-
+  const [dis, setDis] = useState(true);
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const handleNext = () => {
@@ -48,15 +48,19 @@ function DocUpload(props) {
           VerificationToken: VerificationToken,
         })
       );
-      dispatch(captchaVerify());
-      // setTimeout(() => {
-      //   dispatch(registerCollege());
-      // }, 100);
-      // setOpen(true);
+      console.log("clicked handleNext");
+      setTimeout(() => {
+        dispatch(registerCollege());
+      }, 100);
+      setOpen(true);
     }
   };
   const handleClose = () => {
     navigate("/");
+  };
+  const handleDis = () => {
+    console.log("clicked handledis");
+    setDis(false);
   };
 
   const handleUpload = async (file) => {
@@ -127,7 +131,7 @@ function DocUpload(props) {
               sitekey="6LfSr6ghAAAAANogFLUTTs_1M3Y7LwwQ_Ki9U0jI"
               ref={captchaRef}
               onChange={(e) => {
-                dispatch(captchaVerify(e));
+                dispatch(captchaVerify(e, handleDis));
               }}
             />
             <button type="button" className={classes.btn} onClick={handleNext}>
