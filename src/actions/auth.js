@@ -93,7 +93,7 @@ export const captchaVerify = throttle((val, func) => {
   };
 }, 300);
 
-export const loginCollege = throttle((Uemail, Pass, navigate, handleCred) => {
+export const loginCollege = throttle((Uemail, Pass, navigate) => {
   return (dispatch) => {
     const url = APIUrls.loginCollege();
     let body = JSON.stringify({ Uemail: Uemail, Pass: Pass });
@@ -106,10 +106,8 @@ export const loginCollege = throttle((Uemail, Pass, navigate, handleCred) => {
     })
       .then((response) => {
         if (response.ok) {
-          handleCred(true);
           return response.json();
         } else {
-          handleCred(false);
           throw response.status;
         }
       })
@@ -161,6 +159,54 @@ export const updatePass = throttle((Uemail, pass) => {
     let body = JSON.stringify({ Uemail: Uemail, Pass: pass });
     fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
+export const saveNotification = throttle((data) => {
+  return (dispatch) => {
+    const url = APIUrls.saveNotification();
+    let body = JSON.stringify(data);
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response.status;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+}, 300);
+export const deleteNotification = throttle((data) => {
+  return (dispatch) => {
+    const url = APIUrls.deleteNotification();
+    let body = JSON.stringify(data);
+    fetch(url, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
