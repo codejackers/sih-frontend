@@ -47,6 +47,7 @@ function NewPass(props) {
                     setConfPass(e.target.value);
                   }}
                 />
+                <p className={classes.infoMssg}>Password dont match !</p>
                 <button
                   type="button"
                   className={classes.btn}
