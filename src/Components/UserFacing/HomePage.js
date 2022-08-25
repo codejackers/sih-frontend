@@ -50,7 +50,10 @@ function HomePage() {
                   <h4>Filter Results </h4>
                   <FilterAltIcon sx={{ alignSelf: "center" }} />
                 </button>
-                <div id="google_translate_element" class="goog-te-gadget Filter marginSet"></div>
+                <div
+                  id="google_translate_element"
+                  class="goog-te-gadget Filter marginSet"
+                ></div>
               </div>
             </div>
           </div>
@@ -66,7 +69,10 @@ function HomePage() {
             loop
           />
         ) : changes.colleges.length == 0 ? (
-          <p>This college does not exists in our database.</p>
+          <p>
+            There is either no such university on the genuine list, or it has
+            not been registered yet.
+          </p>
         ) : (
           clg.map((data) => (
             <ResultCard

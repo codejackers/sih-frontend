@@ -10,7 +10,10 @@ function ResultCard(props) {
     navigate(`/college/${props.id}`);
   };
   return (
-    <div className={classes.ResultCard} onClick={handleClick}>
+    <div
+      className={classes.ResultCard + " cursor-pointer"}
+      onClick={handleClick}
+    >
       <div className={classes.title}>
         <img src={props.Clglogo} />
         <h1>{props.name}</h1>
