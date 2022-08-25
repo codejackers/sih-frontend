@@ -31,8 +31,7 @@ function SucccessPopup(props) {
             alt="success"
           />
           <p style={{ color: "#A3A3A3", maxWidth: "250px", marginTop: "1rem" }}>
-            An Email has been sent to you with meeting link with preffered time
-            slot.
+            Token Verified Successfully!
           </p>
           <button
             style={{
