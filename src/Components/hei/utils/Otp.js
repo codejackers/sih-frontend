@@ -44,13 +44,13 @@ export default function Otp(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewPass(true);
+    setNewPass(!newPass);
   };
 
   return (
     <>
       {newPass ? (
-        <NewPass email={props.email} />
+        <NewPass email={props.email} back={handleSubmit} />
       ) : (
         <>
           <div className={classes.flexbox}>
@@ -91,6 +91,7 @@ export default function Otp(props) {
               <button
                   type="button"
                   className={classes.btn2nd}
+                  onClick={()=>{props.back()}}
                 >
                   Back
                 </button>
