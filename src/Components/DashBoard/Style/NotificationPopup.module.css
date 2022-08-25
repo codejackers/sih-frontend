@@ -53,6 +53,24 @@
 .title{
     text-align: left;
     font-weight: 600;   
+}.btns{
+    display: flex;
+    justify-content: space-between;
+}
+.btn1, .btn{
+    color: black;    
+    background-color: white;
+    margin-top: 1rem;
+    width: 150px;
+    height: 56px;    
+    text-align: center;
+    border-radius: 8px;
+    border: solid 1px black;
+}
+.btn{
+    color: white;    
+    background-color: black;
+    border: none;
 }
 
 @media (max-width: 650px){

@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { SettingsSystemDaydreamTwoTone } from "@mui/icons-material";
 import { set } from "lodash";
 
-function Login() {
+function Login(props) {
   const [pass, setPwd] = useState("");
   const [email, setEmail] = useState("");
   const [show_pass, setIsRevealPwd] = useState(false);
@@ -70,13 +70,9 @@ function Login() {
     } else {
       setCheckCreds(true);
     }
-  const handleValue = () => {
-    setVal(true);
-  };
-  const handleLogin = () => {
-    if (email != "" && pass != "")
-      dispatch(loginCollege(email, pass, navigate, handleValue));
 
+    if (email != "" && pass != "")
+      dispatch(loginCollege(email, pass, navigate));
   };
 
   return (

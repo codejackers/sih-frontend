@@ -12,10 +12,16 @@
     margin-bottom: 1rem;
     border-radius: 8px;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
 .Notification p{
     color: grey;
 }
 .Notification h3{
     font-size: 18px;
+}
+.heading {
+     display: flex;
+     justify-content: space-between;
 }

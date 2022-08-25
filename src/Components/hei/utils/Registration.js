@@ -116,13 +116,6 @@ function Registration(props) {
             <br />
             <br />
             <h2 className={classes.title}>Create new password</h2>
-            <div className={classes.instruction}>
-              <p>Password must contain:-</p>
-              <p>- Atleast 8 character </p>
-              <p>- Atleast one uppercase character </p>
-              <p>- Atleast one lowercase character </p>
-              <p>- Atleast one symbol </p>
-            </div>
             <input
               placeholder="New Password"
               className={classes.inpNewpass}
@@ -152,10 +145,12 @@ function Registration(props) {
               name="confpass"
               onChange={handleChange}
             />
+
             {confPassError && (
               <p className={classes.errorMessage}>Both Password must match .</p>
             )}
             <p className={classes.credentialDifferent}>Password dont match !</p>
+
             <div className={classes.btns}>
               <button
                 type="button"
