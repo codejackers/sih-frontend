@@ -9,6 +9,7 @@ import {
   PriorityHigh,
   School,
   Search,
+  ExitToApp,
   Close,
 } from "@mui/icons-material";
 import {
@@ -144,6 +145,28 @@ export function MenuButton() {
                   </>
                 );
               })}
+              <>
+                    <ListItemButton
+                      sx={{
+                        color: "#545454",
+                        fontSize: "44px",
+                        marginLeft: "7px",
+                        mr: "10px",
+                      }}
+                    >
+                      <ExitToApp sx={{ fontSize: "46px" }}></ExitToApp>
+                      <ListItemText
+                      sx={{
+                        color: "black",
+                        marginLeft: "5px"
+                      }}
+                        primary={
+                          
+                          <span style={{ fontSize: "30px" }}><p>Logout</p></span>
+                        }
+                      />
+                    </ListItemButton>
+                  </>
             </List>
           </Box>
           <Box
