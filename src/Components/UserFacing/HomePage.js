@@ -71,7 +71,7 @@ function HomePage() {
           />
         ) : changes.colleges.length == 0 ? (
           <p className={classes.message}>
-            There is no such university on our database, you can try advanced search.
+            There is either no such university on the genuine list, or it has not been registered yet.
           </p>
         ) : (
           clg.map((data) => (
