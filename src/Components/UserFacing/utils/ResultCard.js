@@ -5,14 +5,22 @@ import { useNavigate } from "react-router-dom";
 import { PeopleSharp } from "@mui/icons-material";
 import { Player } from "@lottiefiles/react-lottie-player";
 import ToolTipComponent from "../../../helpers/ToolTipComponent";
+import { useSpring, animated as A } from "react-spring";
 function ResultCard(props) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/college/${props.id}`);
   };
+  const animatedProps = useSpring({
+    from: { marginLeft: -200, opacity: 0 },
+    opacity: 1,
+    marginLeft: 0,
+    config: { mass: 1, tension: 140, friction: 42 },
+  });
   return (
-    <div
+    <A.div
       className={classes.ResultCard + " cursor-pointer"}
+      style={{ ...animatedProps }}
       onClick={handleClick}
     >
       <div className={classes.title}>
@@ -49,7 +57,7 @@ function ResultCard(props) {
           </button>
         </div>
       </div>
-    </div>
+    </A.div>
   );
 }
 

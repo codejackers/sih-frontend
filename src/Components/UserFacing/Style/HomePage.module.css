@@ -61,6 +61,7 @@
 .FilterContainer{
   display: flex;
   margin-top: 2rem;
+  font-weight: 100;
 }
 .flexOptions{
   display: flex;
