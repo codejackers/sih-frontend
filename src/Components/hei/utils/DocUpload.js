@@ -46,7 +46,6 @@ function DocUpload(props) {
           uid: UID,
           doc: doc,
           UCity: uCity,
-          VerificationToken: VerificationToken,
         })
       );
       console.log("clicked handleNext");
@@ -127,7 +126,7 @@ function DocUpload(props) {
               className={classes.inpId}
               required
             />
-            <input
+            {/* <input
               type="text"
               onChange={(e) => {
                 setVerificationToken(e.target.value);
@@ -135,7 +134,7 @@ function DocUpload(props) {
               placeholder="Verification Token"
               className={classes.inpId}
               required
-            />
+            /> */}
             <div className={classes.uploadDocFlex}>
               <p className={classes.infoDoc}>Supporting Documents</p>
               <label htmlFor="files" className={classes.label}>
@@ -162,7 +161,7 @@ function DocUpload(props) {
             <button
               type="button"
               className={classes.btn}
-              disabled={dis}
+              disabled={!dis}
               style={{ backgroundColor: dis ? "black" : "grey" }}
               onClick={handleNext}
             >
