@@ -98,87 +98,94 @@ function Report(props) {
     <div className={classes.mainDiv}>
       <NavBar name="Report" />
       <div className={classes.formBody}>
-        <center>
-          <form>
-            <h2 className={classes.title}>Report Suspicious Institution</h2>
-            <p className={classes.info}>
-              You can always report suspicious colleges you come accross in real
-              life or when You find something Suspicious
-            </p>
-
-            <input
-              type="text"
-              placeholder="Suspicious College Name"
-              className={classes.inpId}
-              onChange={(e) => {
-                setCollegeName(e.target.value);
-              }}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className={classes.inpId}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Your Name"
-              className={classes.inpId}
-              onChange={(e) => {
-                setUserName(e.target.value);
-              }}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Suspicious College’s Email (optional)"
-              className={classes.inpId}
-              onChange={(e) => {
-                setCollegeContact(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Suspicious College’s Website
-                            (optional)"
-              className={classes.inpId}
-              onChange={(e) => {
-                setCollegeWebsite(e.target.value);
-              }}
-            />
-            <textarea
-              type="text"
-              placeholder="Suspicious College details"
-              className={classes.inpId}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              required
-            />
-            <div className={classes.uploadDocFlex}>
-              <p className={classes.infoDoc}>
-                Supporting Photos/Documents (Optional)
+        <form>
+          <div className={classes.parts}>
+            <div className={classes.part1}>
+              <h2 className={classes.title}>Report Suspicious Institution</h2>
+              <p className={classes.info}>
+                You can always report suspicious colleges you come accross in
+                real life or when You find something Suspicious
               </p>
-              <label htmlFor="files" className={classes.label}>
-                Upload Files
-              </label>
+
               <input
-                accept="application/pdf"
-                id="files"
-                className={classes.fileUpload}
-                type="file"
+                type="text"
+                placeholder="Suspicious College Name"
+                className={classes.inpId}
                 onChange={(e) => {
-                  handleUpload(e.target.files[0]);
+                  setCollegeName(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className={classes.inpId}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Your Name"
+                className={classes.inpId}
+                onChange={(e) => {
+                  setUserName(e.target.value);
                 }}
                 required
               />
             </div>
+            <div className={classes.part1}>
+              <input
+                type="email"
+                placeholder="Suspicious College’s Email (optional)"
+                className={classes.inpId}
+                onChange={(e) => {
+                  setCollegeContact(e.target.value);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Suspicious College’s Website
+                            (optional)"
+                className={classes.inpId}
+                onChange={(e) => {
+                  setCollegeWebsite(e.target.value);
+                }}
+              />
+              <textarea
+                type="text"
+                placeholder="Suspicious College details"
+                className={classes.inpId}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+                required
+              />
+              <div className={classes.uploadDocFlex}>
+                <p className={classes.infoDoc}>
+                  Supporting Photos/Documents (Optional)
+                </p>
+                <label htmlFor="files" className={classes.label}>
+                  Upload Files
+                </label>
+                <input
+                  accept="application/pdf"
+                  id="files"
+                  className={classes.fileUpload}
+                  type="file"
+                  onChange={(e) => {
+                    handleUpload(e.target.files[0]);
+                  }}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div className={classes.part3}>
             <ReCAPTCHA
               sitekey="6LfSr6ghAAAAANogFLUTTs_1M3Y7LwwQ_Ki9U0jI"
+              style={{ marginLeft: "1rem" }}
               onChange={(e) => {
                 handleCaptcha(e);
               }}
@@ -192,8 +199,8 @@ function Report(props) {
             >
               Submit Report
             </button>
-          </form>
-        </center>
+          </div>
+        </form>
       </div>
     </div>
   );
