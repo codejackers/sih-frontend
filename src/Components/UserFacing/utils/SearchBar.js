@@ -28,7 +28,7 @@ function SearchBar(props) {
         className: props.val == 1 ? classes.input : classes.input1,
         startAdornment: (
           <IconButton sx={{ width: "60px", height: "32px" }}>
-            <Search sx={{ fontSize: "40px" }} />
+            <Search sx={{ fontSize: "40px" , color: "#223959"}} />
           </IconButton>
         ),
       }}

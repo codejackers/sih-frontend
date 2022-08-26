@@ -82,6 +82,8 @@ export function MenuButton() {
       <IconButton
         sx={{
           marginLeft: "auto",
+          color: "white",
+          
         }}
         aria-label="menu"
         onClick={() => {
