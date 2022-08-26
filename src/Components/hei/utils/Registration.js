@@ -147,9 +147,8 @@ function Registration(props) {
             />
 
             {confPassError && (
-              <p className={classes.errorMessage}>Both Password must match .</p>
+              <p className={classes.errorMessage}>Both Passwords must match .</p>
             )}
-            <p className={classes.credentialDifferent}>Password dont match !</p>
 
             <div className={classes.btns}>
               <button
