@@ -42,7 +42,6 @@ function Login(props) {
     }
   };
   const handleDoc = () => {
-    console.log("handeling doc", doc);
     if (!doc) {
       setDoc(true);
     } else {
