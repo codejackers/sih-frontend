@@ -16,6 +16,7 @@ import {
   updateCollege,
   deleteCollegeData,
 } from "../../actions/college";
+import classes from "./Style/DashBoard.module.css";
 import Navbar from "../UserFacing/utils/Navbar";
 import CollegeNotifications from "./utils/CollegeNotifications";
 import NotificationPopup from "./utils/NotificationPopup";
@@ -121,54 +122,61 @@ function DashBoard(props) {
   return (
     <>
       <Navbar name={verified ? "Dashboard" : details.Uname} color="#fff" />
-      <div style={{ maxWidth: "800px", margin: "auto", padding: "0 1rem" }}>
-        <CollegeDetails
-          clgName={details.Uname}
-          clgLogo={
-            details.Clglogo != ""
-              ? details.Clglogo
-              : "https://codejackers1.s3.ap-south-1.amazonaws.com/photos/HolderUniv.svg"
-          }
-          share={`http://localhost:3002/college/${id}`}
-          shortDesc={
-            details.ShortDesc != ""
-              ? details.ShortDesc
-              : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-          }
-          onEdit={handleType}
-          Site={details.Site}
-          verified={verified}
-          Contact={details.Contact}
-        />
-        <EditDetails
-          open={open}
-          type={popUpType}
-          handleClose={handleClose}
-          handleSave={handleSave}
-          details={details}
-        />
-        <CollegeDetails2
-          longDesc={
-            details.LongDesc != ""
-              ? details.LongDesc
-              : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-          }
-          clgAddress={details.UCity != "" ? details.UCity : "--Address--"}
-          onEdit={handleType}
-          Gmap={details.Gmap}
-          verified={verified}
-        />
-        <NotificationPopup
-          open={notify}
-          handleClose={handleNotify}
-          handleSave={handleAddConstNotify}
-        />
-        <CollegeNotifications
-          datas={details.Notifications}
-          verified={verified}
-          onEdit={handleNotify}
-          onDelete={handleDeleteConstNotify}
-        />
+      <div
+        className={classes.DashBoard}
+        style={{ margin: "auto", padding: "0 1rem" }}
+      >
+        <div className={classes.UpperLayer}>
+          <div className={classes.UppperLeft}>
+            <CollegeDetails
+              clgName={details.Uname}
+              clgLogo={
+                details.Clglogo != ""
+                  ? details.Clglogo
+                  : "https://codejackers1.s3.ap-south-1.amazonaws.com/photos/HolderUniv.svg"
+              }
+              share={`http://localhost:3002/college/${id}`}
+              shortDesc={
+                details.ShortDesc != ""
+                  ? details.ShortDesc
+                  : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+              }
+              onEdit={handleType}
+              Site={details.Site}
+              verified={verified}
+              Contact={details.Contact}
+            />
+            <EditDetails
+              open={open}
+              type={popUpType}
+              handleClose={handleClose}
+              handleSave={handleSave}
+              details={details}
+            />
+            <CollegeDetails2
+              longDesc={
+                details.LongDesc != ""
+                  ? details.LongDesc
+                  : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+              }
+              clgAddress={details.UCity != "" ? details.UCity : "--Address--"}
+              onEdit={handleType}
+              Gmap={details.Gmap}
+              verified={verified}
+            />
+          </div>
+          <NotificationPopup
+            open={notify}
+            handleClose={handleNotify}
+            handleSave={handleAddConstNotify}
+          />
+          <CollegeNotifications
+            datas={details.Notifications}
+            verified={verified}
+            onEdit={handleNotify}
+            onDelete={handleDeleteConstNotify}
+          />
+        </div>
         <HorizontalScroller
           courses={details.Courses}
           verified={verified}
