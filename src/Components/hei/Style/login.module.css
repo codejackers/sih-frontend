@@ -1,100 +1,100 @@
-.mainDiv{
-    font-family: Urbanist;
+.mainDiv {
+  font-family: Urbanist;
 }
-.loginImage{
-    width: 12rem;
-    margin: 2rem 0 0 0;
-    padding: 0.5rem;
+.loginImage {
+  width: 12rem;
+  margin: 2rem 0 0 0;
+  padding: 0.5rem;
 }
-.inpEmail, .inpPass{
-    margin: 1rem 0rem 0rem 0rem;
-    padding: 1rem 0.8rem 1rem 0.8rem;
+.inpEmail,
+.inpPass {
+  margin: 1rem 0rem 0rem 0rem;
+  padding: 1rem 0.8rem 1rem 0.8rem;
+  font-size: 20px;
+  border: 1px solid #dadada;
+  background: #f7f8f9;
+  width: 352px;
+  border-radius: 8px;
+}
+.btn,
+.newBtn {
+  border: none;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  color: white;
+  font-size: 15px;
+  background-color: black;
+  height: 56px;
+  width: 365px;
+  border-radius: 8px;
+}
+.btn {
+  margin-top: 2rem;
+  background-color: #223959;
+  transition: none;
+}
+.btn:focus .btn:active {
+  background-color: #223959;
+  transition: none;
+}
+.newBtn {
+  margin-top: 1rem;
+  color: black;
+  border: 2px solid black;
+  background-color: white;
+}
+.btn:hover {
+  background-color: #111c2c;
+  color: white;
+  transition: background-color 1s;
+}
+.newBtn:hover {
+  background-color: #111c2c;
+  color: white;
+  transition: background-color 1s;
+}
+.viewPass {
+  position: absolute;
+  margin: 2.5rem 0rem 0rem -2.3rem;
+  cursor: pointer;
+}
+.frgtPass {
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+.mssg {
+  width: 352px;
+  display: flex;
+  color: red;
+  font-size: 15px;
+  margin-top: 0.5rem;
+}
+.credentialDifferent {
+  font-weight: 600;
+  margin-left: -0.7rem;
+}
+
+@media (max-width: 650px) {
+  .inpEmail,
+  .inpPass {
+    padding: 1rem 1rem;
     font-size: 20px;
-    border: 1px solid #DADADA;
-    background: #F7F8F9;
-    width: 352px;
-    border-radius: 8px;
-}
-.btn, .newBtn{
-    border: none;
-    padding: 1rem 1.5rem 1rem 1.5rem;
-    color: white;    
-    font-size: 15px;
-    background-color: black;
-    height: 56px;
-    width: 365px;
-    border-radius: 8px;
-}
-.btn{
+    width: 300px;
+  }
+  .btn,
+  .newBtn {
+    width: 330px;
+  }
+  .btn {
     margin-top: 2rem;
-    background-color:#223959;
-    transition:none;
-    
-
-}
-.btn:focus
-.btn:active{
-   
-    background-color:#223959;
-    transition:none;
-    
-
-}
-.newBtn{
-    margin-top: 1rem;  
-    color: black;
-    border: 2px solid black;
-    background-color: white;
-} 
-.btn:hover{
-    background-color:#111C2C;
-    color:white;
-    transition: background-color 1s;
-}
-.viewPass{
-    position: absolute;
-    margin: 2.5rem 0rem 0rem -2.3rem;
-    cursor: pointer;
-}
-.frgtPass{
-    color: grey;
-    text-decoration: none;
-    cursor: pointer;
-}
-.mssg{
-    width: 352px;
-    display: flex;
-    color: red;
-    font-size: 15px;
-    margin-top: 0.5rem;
-}
-.credentialDifferent{
+  }
+  .mssg {
+    width: 310px;
+  }
+  .loginImage {
+    width: 10rem;
+  }
+  .credentialDifferent {
     font-weight: 600;
-    margin-left: -0.7rem;
-    
-}
-
-@media (max-width: 650px){
-    .inpEmail, .inpPass{
-        padding: 1rem 1rem;
-        font-size: 20px;
-        width: 300px;
-    }
-    .btn, .newBtn{
-        width: 330px;
-    }
-    .btn{
-        margin-top: 2rem;
-    }
-    .mssg{
-        width: 310px;
-        
-    }
-    .loginImage{
-        width: 10rem;
-    }
-    .credentialDifferent{
-        font-weight: 600;
-        
-    }
+  }
 }
