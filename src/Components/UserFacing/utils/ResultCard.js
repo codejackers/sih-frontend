@@ -14,7 +14,7 @@ function ResultCard(props) {
   const animatedProps = useSpring({
     from: { marginLeft: -200, opacity: 0 },
     opacity: 1,
-    marginLeft: 0,
+    marginLeft: 200,
     config: { mass: 1, tension: 140, friction: 42 },
   });
   return (
