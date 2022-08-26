@@ -33,6 +33,17 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 export function MenuButton() {
+  const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 5
+        }}
+    />
+);
+<ColoredLine color="red" />
+
   const navLinks = [
     {
       name: "Home",
@@ -82,6 +93,8 @@ export function MenuButton() {
       <IconButton
         sx={{
           marginLeft: "auto",
+          color: "white",
+          
         }}
         aria-label="menu"
         onClick={() => {
@@ -112,7 +125,7 @@ export function MenuButton() {
                 const Icon = cloneElement(link.icon, {
                   fontSize: "large",
                   sx: {
-                    color: "#545454",
+                    color: "#223959",
                     fontSize: "44px",
                     marginLeft: "7px",
                     mr: "10px",
@@ -138,7 +151,9 @@ export function MenuButton() {
                       </ListItemIcon>
                       <ListItemText
                         primary={
-                          <span style={{ fontSize: "30px" }}>{link.name}</span>
+                          
+                          <span style={{ fontSize: "30px", fontFamily: "Urbanist",
+                        }}>{link.name}</span>
                         }
                       />
                     </ListItemButton>
