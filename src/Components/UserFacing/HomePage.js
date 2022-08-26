@@ -19,6 +19,7 @@ function HomePage() {
   const [clg, setClg] = useState([]);
   const [filter, setFilter] = useState(false);
   const [gif, setGif] = useState(true);
+  const [clk, setClk] = useState(false);
   const dispatch = useDispatch();
 
   // dispatch(getAllCollege());
@@ -66,6 +67,9 @@ function HomePage() {
                 placeholder="Search Query"
                 className={classes.searchBar}
                 val={2}
+                onClick={() => {
+                  setClk(true);
+                }}
               />
               <div className={classes.flexOptions}>
                 <button className={classes.Filter} onClick={handleFilter}>
@@ -80,42 +84,7 @@ function HomePage() {
             </div>
           </div>
         )}
-
-        <div className={classes.bannerImgContainer}>
-          <div className={classes.bannerImg}>
-            <img src={banner1} alt="banner img" />
-          </div>
-
-          <div className={classes.bannerImg}>
-            <img src={banner2} alt="banner img" />
-          </div>
-        </div>
-
-        <div className={classes.newsContainer}>
-          {clg
-            .splice(0, 10)
-            .map(
-              (data, id) =>
-                data.Fake === true && <BannerCard key={id} data={data} />
-            )}
-        </div>
-
-        {/**  commented and adding fake clg data + banner** **/}
-        {/*filter ? (
-          <Filter setFilter={handleFilter} />
-        ) : gif ? (
-          <Player
-            style={{ height: "400px" }}
-            src="https://assets9.lottiefiles.com/packages/lf20_i8mmfrht.json"
-            autoplay
-            loop
-          />
-        ) : changes.colleges.length == 0 ? (
-          <p className={classes.message}>
-            There is either no such university on the genuine list, or it has
-            not been registered yet.
-          </p>
-        ) : (
+        {clk ? (
           clg.map((data) => (
             <ResultCard
               key={data._id}
@@ -137,6 +106,46 @@ function HomePage() {
               }
             />
           ))
+        ) : (
+          <>
+            <div className={classes.bannerImgContainer}>
+              <div className={classes.bannerImg}>
+                <img src={banner1} alt="banner img" />
+              </div>
+
+              <div className={classes.bannerImg}>
+                <img src={banner2} alt="banner img" />
+              </div>
+            </div>
+
+            <div className={classes.newsContainer}>
+              {clg
+                .splice(0, 10)
+                .map(
+                  (data, id) =>
+                    data.Fake === true && <BannerCard key={id} data={data} />
+                )}
+            </div>
+          </>
+        )}
+
+        {/**  commented and adding fake clg data + banner** **/}
+        {/*filter ? (
+          <Filter setFilter={handleFilter} />
+        ) : gif ? (
+          <Player
+            style={{ height: "400px" }}
+            src="https://assets9.lottiefiles.com/packages/lf20_i8mmfrht.json"
+            autoplay
+            loop
+          />
+        ) : changes.colleges.length == 0 ? (
+          <p className={classes.message}>
+            There is either no such university on the genuine list, or it has
+            not been registered yet.
+          </p>
+        ) : (
+         
         )*/}
       </div>
     </div>
