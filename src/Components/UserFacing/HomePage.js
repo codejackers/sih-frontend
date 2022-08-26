@@ -8,6 +8,8 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import ResultCard from "./utils/ResultCard";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { getAllCollege } from "../../actions/college";
+import SchoolIcon from '@mui/icons-material/School';
+import { size } from "lodash";
 
 function HomePage() {
   const changes = useSelector((state) => state.changes);
@@ -40,12 +42,16 @@ function HomePage() {
 
   return (
     <div className={classes.HomePage}>
-      <Navbar color="#fff" />
+      <Navbar color="#ffffff" name="Uni-Veri Portal" logo={<SchoolIcon style={{
+        width: "60px",
+        height: "40px",
+        margin: "-0.4rem"
+      }} />}/>
       <div className={classes.container}>
         {!filter && (
           <div className={classes.contain}>
             <div className={classes.FilterContainer}>
-              <SearchBar placeholder="Search Query" val={2} />
+              <SearchBar placeholder="Search Query" className={classes.searchBar} val={2} />
               <div className={classes.flexOptions}>
                 <button className={classes.Filter} onClick={handleFilter}>
                   <h4>Filter Results </h4>
