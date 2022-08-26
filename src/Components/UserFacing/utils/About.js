@@ -29,15 +29,15 @@ const About = () => {
             <img className={classes.group1} src={GROUP1} alt="About us" />
             <div className={classes.aboutdetails}>
               <p>
-                University Grants Commission is a statutory body set up by the
-                Department of Higher Education, Ministry of Education,
-                Government of India in accordance to the UGC Act 1956 and is
-                charged with coordination, determination and maintenance of
-                standards of higher education in India. It provides recognition
-                to universities in India, and disbursements of funds to such
-                recognized universities and colleges. The headquarters are in
-                New Delhi, and it has six regional centres in Pune, Bhopal,
-                Kolkata, Hyderabad, Guwahati and Bangalore.
+                CodeJackers is a team of students from chhastigarh which has
+                come together to solve the problem of fake universities pursuing
+                students for admissions. Looking towards the large count of Govt
+                Universities, State universities, Private universities and
+                Deemed to be universities, we provide a system / portal that
+                clearly shows affiliation of universities, authentic recognition
+                status and programmes being offered. This also clearly highlight
+                fake universities from time to time and on query based. We aim to make this data available to as many people
+                as possible.
               </p>
             </div>
           </div>
