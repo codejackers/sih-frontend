@@ -30,10 +30,10 @@
   font-weight: 200;
   margin-top: 40px;
 }
-.Filter{
-  background-color: #E9E9E9;
+.Filter {
+  background-color: #e9e9e9;
   display: flex;
-  height:38px ;
+  height: 38px;
   font-size: 15px;
   text-align: center;
   width: 140px;
@@ -49,48 +49,70 @@
   flex-shrink: 0;
   margin-right: 10px;
 }
-.Filter{
+.Filter {
   align-self: center;
   font-size: 14px;
 }
 .container {
   max-width: 800px;
   margin: auto;
-  
 }
-.FilterContainer{
+.FilterContainer {
   display: flex;
-  margin-top: 2rem;
+  flex-direction: column;
+  margin: 2rem 0;
 }
-.flexOptions{
+.flexOptions {
   display: flex;
   height: 35px;
+  margin-top: 0.6rem;
 }
-Navbar{
+Navbar {
   margin-bottom: 10rem;
 }
-.message{
+.message {
   font-size: 20px;
   margin-top: 2rem;
   padding: 4rem;
   border-radius: 15px;
   color: black;
-  background: #E9E9E9;
+  background: #e9e9e9;
+}
+.bannerImgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.bannerImg {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.bannerImg img {
+  width: 100%;
+  height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
-  .FilterContainer{
+  .FilterContainer {
     display: initial;
-  } 
-  .contain{
-    width: 300px;
-    margin: auto;
   }
-  searchBar{
+  .contain {
+    width: 80%;
+    margin: 2rem auto;
+  }
+  searchBar {
     margin-top: 2rem;
   }
-  .message{
+  .message {
     padding: 2rem;
     width: 180px;
+  }
+
+  .bannerImg {
+    width: 80%;
+    margin: 2rem auto;
   }
 }
