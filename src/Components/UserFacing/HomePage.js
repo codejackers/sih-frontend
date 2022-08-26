@@ -77,7 +77,8 @@ function HomePage() {
           />
         ) : changes.colleges.length == 0 ? (
           <p className={classes.message}>
-            There is either no such university on the genuine list, or it has not been registered yet.
+            There is either no such university on the genuine list, or it has
+            not been registered yet.
           </p>
         ) : (
           clg.map((data) => (
@@ -93,6 +94,7 @@ function HomePage() {
               ReportCount={data.ReportCount}
               email={data.Uemail}
               contact={data.Contact}
+              verified={data.verified}
               Clglogo={
                 data.Clglogo === "" || data.Clglogo === undefined
                   ? "https://codejackers1.s3.ap-south-1.amazonaws.com/photos/HolderUniv.svg"

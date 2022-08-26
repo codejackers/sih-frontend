@@ -12,13 +12,15 @@ function ToolTipComponent(props) {
         fadeEasing="linear"
         fixed={false}
         fontFamily="inherit"
-        fontSize="inherit"
+        fontSize="12px"
         offset={0}
-        padding={16}
+        padding={10}
         placement="top"
         radius={0}
         zIndex={1}
+        width={100}
         content={props.content}
+        className="tooltip-div"
       >
         <button>!</button>
       </Tooltip>
