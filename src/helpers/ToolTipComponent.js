@@ -6,7 +6,7 @@ function ToolTipComponent(props) {
       <Tooltip
         arrow={15}
         background="#000"
-        border="#000"
+        border="red"
         color="#fff"
         fadeDuration={0}
         fadeEasing="linear"
@@ -21,6 +21,7 @@ function ToolTipComponent(props) {
         width={100}
         content={props.content}
         className="tooltip-div"
+        style={{ backgroundColor: "#ff0000" }}
       >
         <button>!</button>
       </Tooltip>

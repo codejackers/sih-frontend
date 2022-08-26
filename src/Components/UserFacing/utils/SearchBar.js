@@ -14,6 +14,7 @@ function SearchBar(props) {
   const [val, setVal] = useState("");
 
   const handleChange = (e) => {
+    props.onClick();
     dispatch(getCollege(e.target.value));
   };
   return (
@@ -28,7 +29,7 @@ function SearchBar(props) {
         className: props.val == 1 ? classes.input : classes.input1,
         startAdornment: (
           <IconButton sx={{ width: "60px", height: "32px" }}>
-            <Search sx={{ fontSize: "40px" , color: "#223959"}} />
+            <Search sx={{ fontSize: "40px", color: "#223959" }} />
           </IconButton>
         ),
       }}
