@@ -1,6 +1,7 @@
 .mainDiv{
     font-family: Urbanist;
-    margin-top: -50px;
+
+ 
 }
 .uploadDocFlex{
     display: flex;
@@ -14,9 +15,11 @@ textarea{
     font-family: urbanist;
 }
 .formBody{
-    margin: auto;
-    max-width: 400px;
-    margin-top: 100px;
+  margin: auto;
+    
+    align-self: center;
+    padding:2rem;
+   
 }
 .info, .infoDoc{
     color: #A3A3A3;
@@ -35,11 +38,13 @@ textarea{
     visibility: hidden;
 }
 .uploadDocFlex{
+    max-width:300px ;
     margin: 1.5rem 0rem 1rem 0;
 }
 .infoDoc{
-    width: 800px;
-    margin-left: 0.8rem;
+    
+    margin: auto;
+    margin-right: 1rem;
 }
 .label{
     width: 300px;
@@ -58,12 +63,32 @@ textarea{
     background-color: black;
     font-size: 15px;
     margin-bottom: 10px;
+    align-self: center;
+    margin-top: -5px;
 }
 ::placeholder{
     color: #A3A3A3;
 }
+.parts{
+    display: flex;
+    
+    margin: auto;
+    justify-content: space-between;
 
+}
+.part1 ,.part2{
+    margin: auto;
 
+    max-width: 350px;
+    align-self: center;
+}
+.part3{
+    display: flex;
+    max-width: 800px;
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
 @media (max-width: 650px){
     .inpId{
         padding: 1rem 1rem;
@@ -75,6 +100,7 @@ textarea{
         padding: 1.2rem 0.5rem 2.5rem 0.5rem;
         width: 335px;
         font-size: 15px;
+        margin-top: 1rem;
     }
     .formBody{
         margin-top: 50px;
@@ -82,5 +108,12 @@ textarea{
     .infoDoc{
         width: 600px;
         margin-left: 0.8rem;
+    }
+    .parts{
+        flex-direction:column;
+    
+    }
+    .part3{
+        flex-direction:column;
     }
 }
