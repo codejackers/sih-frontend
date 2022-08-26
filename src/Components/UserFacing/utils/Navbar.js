@@ -13,12 +13,12 @@ function Navbar(props) {
       display={"flex"}
       position={"sticky"}
       top={0}
-      backgroundColor={"white"}
       pl={3}
       pr={3}
       zIndex={2}
       maxHeight={100}
       height={100}
+      backgroundColor={"#223959"}
       justifyContent={"space-between"}
     >
       {/* <div className={classes.Logo}>
@@ -30,17 +30,38 @@ function Navbar(props) {
         />
       </div> */}
 
+
+<h2
+        style={{
+          margin: "auto",
+          justifySelf: "center",
+          marginLeft: "10px",
+          marginRight: "10px",
+          marginTop: "35px",
+          fontFamily: "urbanist",
+          color: "white",
+        }}
+      >
+        {props.logo}
+      </h2>
+
+
+
       <h1
         style={{
           margin: "auto",
           justifySelf: "center",
-          marginLeft: 0,
-          marginTop: "25px",
+          marginLeft: "10px",
+          marginRight: "10px",
+          marginTop: "30px",
           fontFamily: "urbanist",
+          color: "white",
         }}
       >
+        
         {props.name}
       </h1>
+      
 
       {!props.hidden && (
         <MenuButton sx={{ fontSize: "Large" }} fontSize="Large" />
