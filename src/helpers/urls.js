@@ -4,7 +4,7 @@ export const APIUrls = {
   getAllCollege: () => `${API_ROOT}/college/list`,
   filterCollege: () => `${API_ROOT}/college/list`,
   getCollege: (name) => `${API_ROOT}/college/list?collegename=${name}`,
-  registerCollege: () => `${API_ROOT}/college/register`,
+  registerCollege: () => `${API_ROOT}/college/newRegister`,
   loginCollege: () => `${API_ROOT}/college/login`,
   CollegeDetails: () => `${API_ROOT}/college`,
   sendOtp: () => `${API_ROOT}/college/sendotp`,

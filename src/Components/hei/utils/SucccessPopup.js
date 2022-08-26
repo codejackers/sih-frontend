@@ -31,7 +31,7 @@ function SucccessPopup(props) {
             alt="success"
           />
           <p style={{ color: "#A3A3A3", maxWidth: "250px", marginTop: "1rem" }}>
-            Token Verified Successfully!
+            We have send you an email for Verification.
           </p>
           <button
             style={{
