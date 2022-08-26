@@ -1,10 +1,12 @@
 .CollegeNotifications{
-    height: 400px;
+    height: 440px;
     padding: 1rem;
     margin: 1rem 2rem;
     background-color: #E9E9E9;
     border-radius: 8px;
     overflow-x: scroll;
+    position: relative;
+    width: 100%;
 }
 .Notification{
 
@@ -24,4 +26,12 @@
 .heading {
      display: flex;
      justify-content: space-between;
+}
+
+@media (max-width: 800px){
+    .CollegeNotifications{
+        position: inherit;
+        margin: 0;
+        width: auto;
+    }
 }

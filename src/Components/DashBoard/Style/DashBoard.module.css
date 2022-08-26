@@ -1,0 +1,18 @@
+/* .DashBoard{
+    width: 100vw;
+} */
+.UpperLayer{
+display: flex; 
+flex-direction:row;
+}
+
+@media (max-width: 800px){
+    .DashBoard{
+        max-width: 800px;
+    }
+    .UpperLayer{
+        
+        flex-direction:column;
+    
+        }
+}

@@ -129,6 +129,7 @@ function HomePage() {
               ReportCount={data.ReportCount}
               email={data.Uemail}
               contact={data.Contact}
+              verified={data.verified}
               Clglogo={
                 data.Clglogo === "" || data.Clglogo === undefined
                   ? "https://codejackers1.s3.ap-south-1.amazonaws.com/photos/HolderUniv.svg"
