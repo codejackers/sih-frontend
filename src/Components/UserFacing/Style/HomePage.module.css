@@ -31,41 +31,43 @@
   margin-top: 40px;
 }
 .Filter{
- background-color: #E9E9E9;
- display: flex;
- height:38px ;
- font-size: 15px;
- text-align: center;
- width: 140px;
- justify-content: space-between;
- padding: 10px;
- justify-self: center;
- border-radius: 10px;
- border: 0;
- align-self: center;
- margin-top: 1rem;
- flex-basis: 150px;
-flex-grow: 0;
-flex-shrink: 0;
- margin-right: 10px;
+  background-color: #E9E9E9;
+  display: flex;
+  height:38px ;
+  font-size: 15px;
+  text-align: center;
+  width: 140px;
+  justify-content: space-between;
+  padding: 10px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0;
+  align-self: center;
+  margin-top: 1rem;
+  flex-basis: 150px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 10px;
 }
-.Filter h4{
+.Filter{
   align-self: center;
   font-size: 14px;
 }
 .container {
   max-width: 800px;
   margin: auto;
- 
+  
 }
 .FilterContainer{
   display: flex;
+  margin-top: 2rem;
 }
 .flexOptions{
   display: flex;
   height: 35px;
 }
-.marginSet{
+Navbar{
+  margin-bottom: 10rem;
 }
 .message{
   font-size: 20px;
@@ -83,6 +85,9 @@ flex-shrink: 0;
   .contain{
     width: 300px;
     margin: auto;
+  }
+  searchBar{
+    margin-top: 2rem;
   }
   .message{
     padding: 2rem;
