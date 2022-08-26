@@ -124,19 +124,18 @@ function Registration(props) {
               onChange={handleChange}
             />
 
-            {passError && (
-              <p className={classes.errorMessage}>
-                Your Password must be 8 letters long and include atleast 1
-                capital letter, a number and a special character.
-              </p>
-            )}
-
             <img
               className={classes.viewPass}
               title={show_pass ? "Hide password" : "Show password"}
               onClick={() => setIsRevealPwd((prevState) => !prevState)}
               src={eye}
             />
+            {passError && (
+              <p className={classes.errorMessage}>
+                Your Password must be 8 letters long and include atleast 1
+                capital letter, a number and a special character.
+              </p>
+            )}
 
             <input
               type="password"
@@ -149,7 +148,6 @@ function Registration(props) {
             {confPassError && (
               <p className={classes.errorMessage}>Both Password must match .</p>
             )}
-            <p className={classes.credentialDifferent}>Password dont match !</p>
 
             <div className={classes.btns}>
               <button
