@@ -3,6 +3,7 @@ import classes from "../Style/ResultCard.module.css";
 import CallIcon from "@mui/icons-material/Call";
 import { useNavigate } from "react-router-dom";
 import { PeopleSharp } from "@mui/icons-material";
+import { Player } from "@lottiefiles/react-lottie-player";
 import ToolTipComponent from "../../../helpers/ToolTipComponent";
 function ResultCard(props) {
   const navigate = useNavigate();
@@ -17,7 +18,14 @@ function ResultCard(props) {
       <div className={classes.title}>
         <img src={props.Clglogo} />
         <h1>{props.name}</h1>
-        {props.ReportCount > 5 && (
+        {props.verified ? (
+          <Player
+            src="https://assets7.lottiefiles.com/packages/lf20_6LimOm.json"
+            style={{ height: "40px" }}
+            autoplay
+            loop
+          />
+        ) : (
           <ToolTipComponent
             content={`Number of reports are ${props.ReportCount}`}
           />
@@ -27,12 +35,9 @@ function ResultCard(props) {
         <p>{props.shortDesc}</p>
       </div>
       <div className={classes.details}>
-        <h4>Contact Details:</h4>
         <div className={classes.contact}>
           <p>
-            {props.email != "" ||
-              (props.email == undefined && <span>Email:</span>)}
-            {props.email}
+            <a href={`mailto:${props.email}`}>{props.email}</a>
           </p>
           <button
             onClick={() => {
