@@ -21,7 +21,7 @@ function ToolTipComponent(props) {
         width={100}
         content={props.content}
         className="tooltip-div"
-        style={{ backgroundColor: "#ff0000" }}
+        style={{ backgroundColor: "#ff0000", background: "#ff0000" }}
       >
         <button>!</button>
       </Tooltip>
