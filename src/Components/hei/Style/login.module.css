@@ -27,6 +27,18 @@
 }
 .btn{
     margin-top: 2rem;
+    background-color:#223959;
+    transition:none;
+    
+
+}
+.btn:focus
+.btn:active{
+   
+    background-color:#223959;
+    transition:none;
+    
+
 }
 .newBtn{
     margin-top: 1rem;  
@@ -34,6 +46,11 @@
     border: 2px solid black;
     background-color: white;
 } 
+.btn:hover{
+    background-color:#111C2C;
+    color:white;
+    transition: background-color 1s;
+}
 .viewPass{
     position: absolute;
     margin: 2.5rem 0rem 0rem -2.3rem;
