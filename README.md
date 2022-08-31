@@ -9,7 +9,7 @@ Looking towards the large count of Govt Universities, State universities, Privat
 
 ## Demo
 
-https://user-images.githubusercontent.com/72716403/187630732-0856e667-bced-418c-9b2f-7f10e94fb923.mp4
+https://user-images.githubusercontent.com/72716403/187641180-81173bf5-fefb-4e08-8c1c-4bb1f41188f2.mp4
 
 
 ## Deployment
